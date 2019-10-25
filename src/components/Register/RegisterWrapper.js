@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import logo from '../../logo.jpg'
 import { Button, TextInput, Checkbox, Icon, Modal } from 'react-materialize';
+import { Link } from 'react-router-dom'
 
 export class RegisterWrapper extends Component {
 
@@ -16,7 +17,7 @@ export class RegisterWrapper extends Component {
     componentDidMount() {
         this.props.getAllUsers()
     }
-    
+
 
     onSubmit = (e) => {
         e.preventDefault()
@@ -29,7 +30,7 @@ export class RegisterWrapper extends Component {
                 password: this.state.password,
                 confirmPassword: this.state.confirmPassword
             }
-            
+
             this.props.createUser(newUser)
         }
     }
@@ -63,8 +64,8 @@ export class RegisterWrapper extends Component {
             alert('Passwords do not match')
             return false
         }
-        
-        const isExist = this.props.users.some(user =>  
+
+        const isExist = this.props.users.some(user =>
             user.email === this.state.email || user.phoneNumber === this.state.phoneNumber
         )
 
@@ -76,23 +77,23 @@ export class RegisterWrapper extends Component {
     }
 
     onChangeEmail = (e) => {
-        this.setState({email: e.target.value})
+        this.setState({ email: e.target.value })
     }
     onChangePhoneNumber = (e) => {
-        this.setState({phoneNumber: e.target.value})
+        this.setState({ phoneNumber: e.target.value })
     }
     onChangeName = (e) => {
-        this.setState({name: e.target.value})
+        this.setState({ name: e.target.value })
     }
     onChangePassword = (e) => {
-        this.setState({password: e.target.value})
+        this.setState({ password: e.target.value })
     }
     onChangeConfirmPassword = (e) => {
-        this.setState({confirmPassword: e.target.value})    
+        this.setState({ confirmPassword: e.target.value })
     }
 
     onChangeConditionAgreement = (e) => {
-        this.setState({conditionAgreement: !this.state.conditionAgreement})
+        this.setState({ conditionAgreement: !this.state.conditionAgreement })
         console.log(this.state.conditionAgreement);
     }
 
@@ -100,20 +101,19 @@ export class RegisterWrapper extends Component {
         return (
             <div className="register-wrapper">
                 <div >
-                    <img style = {{padding: '10px', width: '250px'}} src={logo} />
+                    <img style={{ padding: '10px', width: '250px' }} src={logo} />
                 </div>
-                <form onSubmit = {this.onSubmit} style={{marginLeft: '2rem', marginRight: '2rem'}}>
-                    <TextInput onChange = {this.onChangeEmail} placeholder = "Email"/>
-                    <TextInput onChange = {this.onChangePhoneNumber} placeholder = "Phone Number"/>
-                    <TextInput onChange = {this.onChangeName} placeholder = "Name"/>
-                    <TextInput type = "password" onChange = {this.onChangePassword} placeholder = "Password"/>
-                    <TextInput type = "password" onChange = {this.onChangeConfirmPassword} placeholder = "Confirm Password"/>
-                    <Checkbox onChange = {this.onChangeConditionAgreement} value="agree" label = "I agree to"/><a href = "#"> Terms and Conditions</a>
-                    <Button type = "submit" waves="light" style={{marginRight: '5px', marginTop: '2rem', width: '100%'}}>
+                <form onSubmit={this.onSubmit} style={{ marginLeft: '2rem', marginRight: '2rem' }}>
+                    <TextInput onChange={this.onChangeEmail} placeholder="Email" />
+                    <TextInput onChange={this.onChangePhoneNumber} placeholder="Phone Number" />
+                    <TextInput onChange={this.onChangeName} placeholder="Name" />
+                    <TextInput type="password" onChange={this.onChangePassword} placeholder="Password" />
+                    <TextInput type="password" onChange={this.onChangeConfirmPassword} placeholder="Confirm Password" />
+                    <Checkbox onChange={this.onChangeConditionAgreement} value="agree" label="I agree to" /><a href="#"> Terms and Conditions</a>
+                    <Button type="submit" waves="light" style={{ marginRight: '5px', marginTop: '2rem', width: '100%' }}>
                         Submit
                         <Icon left></Icon>
                     </Button>
-
 
                     <Modal header="Modal Header">
                         <p>
