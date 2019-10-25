@@ -44,6 +44,15 @@ export class RegisterWrapper extends Component {
         }
 
         
+        const isExist = this.props.users.some(user =>  
+            user.email === this.state.email || user.phoneNumber === this.state.phoneNumber
+        )
+
+        if (isExist) {
+            console.log('asdasd')
+            alert('Email or phone number already exist')
+            return
+        }
 
         let newUser = {
             email: this.state.email,
