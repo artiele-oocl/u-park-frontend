@@ -99,15 +99,16 @@ export class RegisterWrapper extends Component {
     render() {
         return (
             <div className="register-wrapper">
-                {/* <h1>uPark</h1> */}
-                <img style = {{height: '200px', width: '90%'}} src={logo} />
+                <div >
+                    <img style = {{padding: '10px', width: '250px'}} src={logo} />
+                </div>
                 <form onSubmit = {this.onSubmit} style={{marginLeft: '2rem', marginRight: '2rem'}}>
                     <TextInput onChange = {this.onChangeEmail} placeholder = "Email"/>
                     <TextInput onChange = {this.onChangePhoneNumber} placeholder = "Phone Number"/>
                     <TextInput onChange = {this.onChangeName} placeholder = "Name"/>
-                    <TextInput type = "password" onChange = {this.onChangePassword} placeholder = "Password" style = {{ marginTop: '2rem' }}/>
+                    <TextInput type = "password" onChange = {this.onChangePassword} placeholder = "Password"/>
                     <TextInput type = "password" onChange = {this.onChangeConfirmPassword} placeholder = "Confirm Password"/>
-                    <Checkbox onChange = {this.onChangeConditionAgreement} value="agree" label="I agree to Terms and Conditions"/>
+                    <Checkbox onChange = {this.onChangeConditionAgreement} value="agree" label = "I agree to"/><a href = "#"> Terms and Conditions</a>
                     <Button type = "submit" waves="light" style={{marginRight: '5px', marginTop: '2rem', width: '100%'}}>
                         Submit
                         <Icon left></Icon>
