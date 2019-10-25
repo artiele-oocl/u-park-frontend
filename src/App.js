@@ -1,10 +1,11 @@
 import React from 'react';
-
+import LogInContainer from './containers/LogInContainer'
 function App() {
+
   return (
     <div className="App">
       <header className="App-header">
-        Sample Content
+        <LogInContainer />
       </header>
     </div>
   );
