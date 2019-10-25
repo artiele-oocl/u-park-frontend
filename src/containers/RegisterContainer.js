@@ -10,11 +10,11 @@ const mapDispatchToProps =  dispatch => ({
   createUser: (newUser) => {
       UserResource.createUser(newUser)
   },
+
   getAllUsers: () => {
     UserResource.getAll()
     .then(res => res.json())
     .then(res => {
-        console.log(res);
       dispatch({
         type: 'REFRESH',
         payload: res

@@ -23,14 +23,15 @@ export class RegisterWrapper extends Component {
         e.preventDefault()
 
         if (this.isInputValid()) {
-            let newUser = {
+            
+            const newUser = {
                 email: this.state.email,
                 phoneNumber: this.state.phoneNumber,
                 name: this.state.name,
                 password: this.state.password,
                 confirmPassword: this.state.confirmPassword
             }
-
+            
             this.props.createUser(newUser)
         }
     }
@@ -70,10 +71,10 @@ export class RegisterWrapper extends Component {
         )
 
         if (isExist) {
-            console.log('asdasd')
             alert('Email or phone number already exist')
             return false
         }
+        return true;
     }
 
     onChangeEmail = (e) => {
@@ -94,7 +95,6 @@ export class RegisterWrapper extends Component {
 
     onChangeConditionAgreement = (e) => {
         this.setState({ conditionAgreement: !this.state.conditionAgreement })
-        console.log(this.state.conditionAgreement);
     }
 
     render() {
