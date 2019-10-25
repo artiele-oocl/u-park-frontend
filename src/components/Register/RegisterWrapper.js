@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import logo from '../../logo.jpg'
+import { Button, TextInput, Checkbox, Icon, Modal } from 'react-materialize';
 
 export class RegisterWrapper extends Component {
 
@@ -7,7 +9,8 @@ export class RegisterWrapper extends Component {
         phoneNumber: '',
         name: '',
         password: '',
-        confirmPassword: ''
+        confirmPassword: '',
+        conditionAgreement: false
     }
 
     componentDidMount() {
@@ -18,31 +21,48 @@ export class RegisterWrapper extends Component {
     onSubmit = (e) => {
         e.preventDefault()
 
+        if (this.isInputValid()) {
+            let newUser = {
+                email: this.state.email,
+                phoneNumber: this.state.phoneNumber,
+                name: this.state.name,
+                password: this.state.password,
+                confirmPassword: this.state.confirmPassword
+            }
+            
+            this.props.createUser(newUser)
+        }
+    }
+
+    isInputValid() {
+        if (!this.state.conditionAgreement) {
+            alert('Please check the box to agree in terms and conditions')
+            return false
+        }
         if (!new RegExp(".+@.+\\..+").test(this.state.email)) {
             alert('Invalid Email')
-            return
+            return false
         }
 
         if (!new RegExp("[0-9]{11}").test(this.state.phoneNumber)) {
             alert('Invalid Number, must be 11-digit number')
-            return
+            return false
         }
 
         if (!new RegExp("[a-zA-Z0-9]{5}").test(this.state.name)) {
             alert('Invalid Name, must contain at least 5 characters')
-            return
+            return false
         }
 
         if (!new RegExp("[a-zA-Z0-9]{3}").test(this.state.password)) {
             alert('Invalid Name, must contain at least 3 characters')
-            return
+            return false
         }
 
         if (this.state.password != this.state.confirmPassword) {
             alert('Passwords do not match')
-            return
+            return false
         }
-
         
         const isExist = this.props.users.some(user =>  
             user.email === this.state.email || user.phoneNumber === this.state.phoneNumber
@@ -51,19 +71,8 @@ export class RegisterWrapper extends Component {
         if (isExist) {
             console.log('asdasd')
             alert('Email or phone number already exist')
-            return
+            return false
         }
-
-        let newUser = {
-            email: this.state.email,
-            phoneNumber: this.state.phoneNumber,
-            name: this.state.name,
-            password: this.state.password,
-            confirmPassword: this.state.confirmPassword
-        }
-
-
-        this.props.createUser(newUser)
     }
 
     onChangeEmail = (e) => {
@@ -82,16 +91,34 @@ export class RegisterWrapper extends Component {
         this.setState({confirmPassword: e.target.value})    
     }
 
+    onChangeConditionAgreement = (e) => {
+        this.setState({conditionAgreement: !this.state.conditionAgreement})
+        console.log(this.state.conditionAgreement);
+    }
+
     render() {
         return (
             <div className="register-wrapper">
-                <form onSubmit = {this.onSubmit}>
-                    <input onChange = {this.onChangeEmail} placeholder = "Email"/><br/>
-                    <input onChange = {this.onChangePhoneNumber} placeholder = "Phone Number"/><br/>
-                    <input onChange = {this.onChangeName} placeholder = "Name"/><br/>
-                    <input type="password" onChange = {this.onChangePassword} placeholder = "Password"/><br/>
-                    <input type="password" onChange = {this.onChangeConfirmPassword} placeholder = "Confirm Password"/><br/>
-                    <button type = "submit">Register</button>
+                {/* <h1>uPark</h1> */}
+                <img style = {{height: '200px', width: '90%'}} src={logo} />
+                <form onSubmit = {this.onSubmit} style={{marginLeft: '2rem', marginRight: '2rem'}}>
+                    <TextInput onChange = {this.onChangeEmail} placeholder = "Email"/>
+                    <TextInput onChange = {this.onChangePhoneNumber} placeholder = "Phone Number"/>
+                    <TextInput onChange = {this.onChangeName} placeholder = "Name"/>
+                    <TextInput type = "password" onChange = {this.onChangePassword} placeholder = "Password" style = {{ marginTop: '2rem' }}/>
+                    <TextInput type = "password" onChange = {this.onChangeConfirmPassword} placeholder = "Confirm Password"/>
+                    <Checkbox onChange = {this.onChangeConditionAgreement} value="agree" label="I agree to Terms and Conditions"/>
+                    <Button type = "submit" waves="light" style={{marginRight: '5px', marginTop: '2rem', width: '100%'}}>
+                        Submit
+                        <Icon left></Icon>
+                    </Button>
+
+
+                    <Modal header="Modal Header">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                        </p>
+                    </Modal>
                 </form>
             </div>
         )
