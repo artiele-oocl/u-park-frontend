@@ -1,11 +1,14 @@
 import React from 'react';
 import RegisterContainer from './containers/RegisterContainer';
-import './App.css'
+import LogInContainer from './containers/LogInContainer'
 
 function App() {
   return (
     <div className="App">
-      <RegisterContainer/>
+      <header className="App-header">
+        <RegisterContainer/>
+        <LogInContainer />
+      </header>
     </div>
   );
 }
