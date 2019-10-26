@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ParkingLotList from './ParkingLotList'
 export class ParkingLotListWrapper extends Component {
 
     componentDidMount() {
@@ -9,6 +10,7 @@ export class ParkingLotListWrapper extends Component {
         return (
             <div>
                 {console.log(this.props.parkingLots)}
+                <ParkingLotList parkingLotList={this.props.parkingLots}/>
             </div>
         )
     }
