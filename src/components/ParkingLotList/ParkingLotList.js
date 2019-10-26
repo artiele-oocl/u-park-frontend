@@ -12,7 +12,7 @@ export class ParkingLotList extends Component {
                     <Col m={6} s={12}>
                 <Collection>
                     {parkingLotList.map((parkingLot, i) =>
-                        <CollectionItem href="#">
+                        <CollectionItem href="#" key={i}>
                             <ParkingLot parkingLot={parkingLot}/>
                         </CollectionItem>
                     )}

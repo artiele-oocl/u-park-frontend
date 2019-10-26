@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ParkingLotList from './ParkingLotList'
+import ParkingLotListInput from './ParkingLotListInput'
 export class ParkingLotListWrapper extends Component {
 
     componentDidMount() {
@@ -9,8 +10,8 @@ export class ParkingLotListWrapper extends Component {
     render() {
         return (
             <div>
-                {console.log(this.props.parkingLots)}
-                <ParkingLotList parkingLotList={this.props.parkingLots}/>
+                <ParkingLotListInput onNewTodoAdded={this.addNewTodo} onToggleFilter={this.toggleTodoFilterWrapper} />
+                <ParkingLotList parkingLotList={this.props.parkingLots} />
             </div>
         )
     }
