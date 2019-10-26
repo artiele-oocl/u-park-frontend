@@ -9,6 +9,11 @@ export default (state = initialState, { type, payload }) => {
                 ...state,
                 parkingLots: payload,
             };
+        case "GET_NEAREST_PARKING_LOTS":
+            return {
+                ...state,
+                parkingLots: payload,
+            };
         default:
             return state;
     }

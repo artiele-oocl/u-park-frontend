@@ -7,6 +7,7 @@ import {
     Switch,
     Route
 } from "react-router-dom"
+import ParkingLotListContainer from './containers/ParkingLotListContainer';
 
 export default class App extends React.Component {
     render() {
@@ -20,6 +21,10 @@ export default class App extends React.Component {
 
                         <Route path="/register">
                             <RegisterContainer/>
+                        </Route>
+
+                        <Route path="/parkinglotlist">
+                            <ParkingLotListContainer/>
                         </Route>
                     </Switch>
                 </Router>

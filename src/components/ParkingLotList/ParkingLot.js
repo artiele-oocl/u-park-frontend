@@ -10,7 +10,7 @@ export default class ParkingLot extends Component {
                     <Col style={{float: 'left', textAlign: 'left'}}>
                         {parkingLot.name}
                         <br/>
-                        <span style={{fontSize:'11px'}}>Sample Distance</span>
+                        <span style={{fontSize:'11px'}}>{parseFloat(parkingLot.distance).toFixed(2)} km</span>
                     </Col>
                     <Col style={{float: 'right', fontSize:'11px'}}>
                         ₱{parkingLot.rate}/hr

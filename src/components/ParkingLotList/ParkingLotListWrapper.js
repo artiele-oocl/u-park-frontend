@@ -3,7 +3,7 @@ import ParkingLotList from './ParkingLotList'
 export class ParkingLotListWrapper extends Component {
 
     componentDidMount() {
-        this.props.refreshParkingLots();
+        this.props.getNearestParkingLotsFromLocation(14.535600800000001, 120.999092);
     }
 
     render() {
