@@ -1,15 +1,23 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import {Row, Col} from 'react-materialize';
 
 export default class ParkingLot extends Component {
     render() {
-        const { parkingLot } = this.props;
+        const {parkingLot} = this.props;
         return (
-          <div>
             <div>
-              <label>{parkingLot.name}|{parkingLot.latitude}|{parkingLot.longitude} </label>
+                <Row>
+                    <Col style={{float: 'left', textAlign: 'left'}}>
+                        {parkingLot.name}
+                        <br/>
+                        <span style={{fontSize:'11px'}}>Sample Distance</span>
+                    </Col>
+                    <Col style={{float: 'right', fontSize:'11px'}}>
+                        ₱{parkingLot.rate}/hr
+                    </Col>
+                </Row>
             </div>
-          </div>
         )
-      }
     }
+}
     

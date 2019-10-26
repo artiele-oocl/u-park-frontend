@@ -1,20 +1,24 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import ParkingLot from './ParkingLot'
+import {Collection, CollectionItem, Row, Col} from 'react-materialize';
+
 export class ParkingLotList extends Component {
 
     render() {
-        const { parkingLotList } = this.props;
+        const {parkingLotList} = this.props;
         return (
             <div>
-                <table>
-                    <tbody>
+                <Row>
+                    <Col m={6} s={12}>
+                <Collection>
                     {parkingLotList.map((parkingLot, i) =>
-                        <tr>
-                            <ParkingLot parkingLot={parkingLot} />
-                        </tr>
+                        <CollectionItem href="#">
+                            <ParkingLot parkingLot={parkingLot}/>
+                        </CollectionItem>
                     )}
-                    </tbody>
-                </table>
+                </Collection>
+                    </Col>
+                </Row>
             </div>
 
         )
