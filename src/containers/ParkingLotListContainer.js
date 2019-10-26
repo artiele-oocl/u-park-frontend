@@ -21,10 +21,15 @@ const mapDispatchToProps = dispatch => ({
         ParkingLotResource.getNearestParkingLots(latitude, longitude)
             .then(res => res.json())
             .then(parkinglots => {
-                dispatch({
-                    type: 'GET_NEAREST_PARKING_LOTS',
-                    payload: parkinglots
-                })
+                // TODO: BUG FIXING
+                // When no setTimeout here, after call in backend, 
+                // it will return many list of parking lots (this.forceUpdate();) force updating the ParkingLotListWrapper 
+                setTimeout(() => {
+                    dispatch({
+                        type: 'GET_NEAREST_PARKING_LOTS',
+                        payload: parkinglots
+                    })
+                }, 1000 * 60);
             })
     },
     filterParkingLotsByCriteria: (criteria) => dispatch({
@@ -32,7 +37,7 @@ const mapDispatchToProps = dispatch => ({
         payload: criteria
     })
 });
-
+  
 export default connect(
     mapStateToProps,
     mapDispatchToProps
