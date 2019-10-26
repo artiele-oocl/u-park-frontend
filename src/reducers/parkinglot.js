@@ -17,7 +17,7 @@ export default (state = initialState, { type, payload }) => {
         case "FILTER_PARKING_LOTS":
             let orderedParkingLots = [];
             if (payload === 'Price') {
-                orderedParkingLots = state.parkingLots.sort((lotA, lotB) => (lotA.price > lotB.price) ? 1 : -1)
+                orderedParkingLots = state.parkingLots.sort((lotA, lotB) => parseFloat(lotA.rate) - parseFloat(lotB.rate));
             } else if (payload === 'Rating') {
                 orderedParkingLots = state.parkingLots.sort((lotA, lotB) => (lotA.rating < lotB.rating) ? 1 : -1)
             }
