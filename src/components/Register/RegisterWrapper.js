@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import logo from '../../logo.jpg'
-import {Button, TextInput, Checkbox, Icon, Modal} from 'react-materialize';
+import {Link} from 'react-router-dom';
+import {Button, TextInput, Checkbox} from 'react-materialize';
 
 export class RegisterWrapper extends Component {
     state = {
@@ -99,7 +100,7 @@ export class RegisterWrapper extends Component {
         return (
             <div className="register-wrapper">
                 <div>
-                    <img style={{padding: '10px', width: '250px'}} src={logo}/>
+                    <img style={{padding: '10px', width: '250px'}} src={logo} alt='logo'/>
                 </div>
                 <form onSubmit={this.onSubmit} style={{marginLeft: '2rem', marginRight: '2rem'}}>
                     <TextInput onChange={this.onChangeEmail} placeholder="Email"/>
@@ -108,21 +109,10 @@ export class RegisterWrapper extends Component {
                     <TextInput type="password" onChange={this.onChangePassword} placeholder="Password"/>
                     <TextInput type="password" onChange={this.onChangeConfirmPassword} placeholder="Confirm Password"/>
                     <Checkbox onChange={this.onChangeConditionAgreement} value="agree" label="I agree to"/>
-                    <a href="#"> Terms and Conditions</a>
+                    <Link to="/terms"> Terms and Conditions</Link>
                     <Button type="submit" waves="light" style={{marginRight: '5px', marginTop: '2rem', width: '100%'}}>
                         Submit
-                        <Icon left/>
                     </Button>
-
-                    <Modal header="Modal Header">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-                        </p>
-                    </Modal>
                 </form>
             </div>
         )
