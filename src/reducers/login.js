@@ -14,7 +14,6 @@ export default (state = initialState, {type, payload}) => {
                     isLogIn: true
                 }
             }
-            break;
         default:
             return state;
     }
