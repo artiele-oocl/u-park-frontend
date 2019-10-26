@@ -27,7 +27,10 @@ export class RegisterWrapper extends Component {
                 password: this.state.password,
                 confirmPassword: this.state.confirmPassword
             };
-            this.props.createUser(newUser)
+            let status = this.props.createUser(newUser);
+            status.then(res => console.log(res));
+            // If res.code === undefined then redirect to login page
+            // Else remain at Register page while retaining original input values
         }
     };
 
