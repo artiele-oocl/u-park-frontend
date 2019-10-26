@@ -16,6 +16,16 @@ const mapDispatchToProps =  dispatch => ({
             payload: parkinglots
           })
         })
+      },
+      getNearestParkingLotsFromLocation: (latitude, longitude) => {
+        ParkingLotResource.getNearestParkingLots(latitude, longitude)
+        .then(res => res.json())
+        .then(parkinglots => {
+          dispatch({
+            type: 'GET_NEAREST_PARKING_LOTS',
+            payload: parkinglots
+          })
+        })
       }
     });
 
