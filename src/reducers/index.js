@@ -3,8 +3,8 @@ import registerReducer from "./register";
 import loginReducer from "./login";
 
 const rootReducer = combineReducers({
-  registerResource: registerReducer,
-  loginResource: loginReducer
+    registerResource: registerReducer,
+    loginResource: loginReducer
 });
 
 export default rootReducer;
