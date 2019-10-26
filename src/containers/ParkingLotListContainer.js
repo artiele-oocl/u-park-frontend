@@ -26,7 +26,11 @@ const mapDispatchToProps = dispatch => ({
                     payload: parkinglots
                 })
             })
-    }
+    },
+    filterParkingLotsByCriteria: (criteria) => dispatch({
+        type: 'FILTER_PARKING_LOTS',
+        payload: criteria
+    })
 });
 
 export default connect(

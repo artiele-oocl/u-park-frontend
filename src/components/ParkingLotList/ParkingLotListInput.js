@@ -9,6 +9,7 @@ export default class ParkingLotListInput extends Component {
 
     handleInputChange = (event) => {
         this.setState({ inputValue: event.target.value });
+        this.props.onSetFilter(event.target.value);
     };
 
     dispatch = () => {
