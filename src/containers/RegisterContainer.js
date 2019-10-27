@@ -8,7 +8,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     createUser: (newUser) => {
-        UserResource.createUser(newUser)
+        return UserResource.createUser(newUser)
+                .then(res => res.json())
     },
 
     getAllUsers: () => {

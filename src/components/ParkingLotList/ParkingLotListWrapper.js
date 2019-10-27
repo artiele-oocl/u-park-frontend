@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import ParkingLotList from './ParkingLotList'
 import ParkingLotListInput from './ParkingLotListInput'
 
@@ -12,6 +12,7 @@ export class ParkingLotListWrapper extends Component {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(this.setGeoLocation);
         }
+        this.props.getNearestParkingLotsFromLocation(14.535600800000001, 120.999092);
     }
 
     setGeoLocation = (position) => {
@@ -38,11 +39,11 @@ export class ParkingLotListWrapper extends Component {
         }
         return (
             <div>
-                <ParkingLotListInput onSetFilter={this.setFilter} />
-                <ParkingLotList parkingLotList={this.props.parkingLots} />
+                <ParkingLotListInput onSetFilter={this.setFilter}/>
+                <ParkingLotList parkingLotList={this.props.parkingLots}/>
             </div>
         )
     }
 }
 
-export default ParkingLotListWrapper
+export default ParkingLotListWrapper;
