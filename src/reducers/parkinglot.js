@@ -16,7 +16,9 @@ export default (state = initialState, {type, payload}) => {
             };
         case "FILTER_PARKING_LOTS":
             let orderedParkingLots = [];
-            if (payload === 'Price') {
+            if (payload === 'Default') {
+                orderedParkingLots = state.parkingLots.sort((lotA, lotB) => parseFloat(lotA.distance) - parseFloat(lotB.distance));
+            } else if (payload === 'Price') {
                 orderedParkingLots = state.parkingLots.sort((lotA, lotB) => parseFloat(lotA.rate) - parseFloat(lotB.rate));
             } else if (payload === 'Rating') {
                 orderedParkingLots = state.parkingLots.sort((lotA, lotB) => (lotA.rating < lotB.rating) ? 1 : -1)

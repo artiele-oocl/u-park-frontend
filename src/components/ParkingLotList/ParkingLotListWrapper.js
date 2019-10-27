@@ -12,14 +12,15 @@ export class ParkingLotListWrapper extends Component {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(this.setGeoLocation);
         }
-        this.props.getNearestParkingLotsFromLocation(14.535600800000001, 120.999092);
     }
 
     setGeoLocation = (position) => {
         this.setState({isGeolocationAvailable: true});
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
+
         this.props.getNearestParkingLotsFromLocation(latitude, longitude);
+        this.props.filterParkingLotsByCriteria('Default');
     };
 
     setFilter = (filter) => {
@@ -27,6 +28,8 @@ export class ParkingLotListWrapper extends Component {
             this.props.filterParkingLotsByCriteria('Price');
         } else if (filter === 'Rating') {
             this.props.filterParkingLotsByCriteria('Rating');
+        } else {
+            this.props.filterParkingLotsByCriteria('Default');
         }
         this.forceUpdate();
     };

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import {Select} from 'react-materialize';
 
 export default class ParkingLotListInput extends Component {
@@ -8,26 +8,15 @@ export default class ParkingLotListInput extends Component {
     };
 
     handleInputChange = (event) => {
-        this.setState({ inputValue: event.target.value });
+        this.setState({inputValue: event.target.value});
         this.props.onSetFilter(event.target.value);
     };
 
-    dispatch = () => {
-        this.props.onNewTodoAdded(this.state.inputValue);
-        this.setState({ inputValue: '' })
-    };
-
-    toggleFilter = (e) => {
-        this.props.onToggleFilter(e.target.checked);
-    }
-
     render() {
         return (
-            <div className="todo-input" >
-                <Select value="" onChange={this.handleInputChange}>
-                    <option value="" disabled>
-                        {this.state.inputValue}
-                    </option>
+            <div className="todo-input">
+                <Select value={this.state.inputValue} onChange={this.handleInputChange}>
+                    <option value=""/>
                     <option value="Price">
                         Price
                     </option>

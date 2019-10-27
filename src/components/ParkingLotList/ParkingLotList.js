@@ -10,13 +10,13 @@ export class ParkingLotList extends Component {
             <div>
                 <Row>
                     <Col m={6} s={12}>
-                <Collection>
-                    {parkingLotList.map((parkingLot, i) =>
-                        <CollectionItem href="#" key={i}>
-                            <ParkingLot parkingLot={parkingLot}/>
-                        </CollectionItem>
-                    )}
-                </Collection>
+                        <Collection>
+                            {parkingLotList.map((parkingLot, i) =>
+                                <CollectionItem href="#" key={i}>
+                                    <ParkingLot parkingLot={parkingLot}/>
+                                </CollectionItem>
+                            )}
+                        </Collection>
                     </Col>
                 </Row>
             </div>
