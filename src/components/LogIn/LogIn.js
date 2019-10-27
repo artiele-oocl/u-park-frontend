@@ -24,7 +24,7 @@ export default class LogIn extends Component {
     render() {
         return (
             <div className="todo-wrapper">
-                <img style={{padding: '10px', width: '250px'}} src={logo}/>
+                <img style={{padding: '10px', width: '250px'}} src={logo} alt='logo'/>
                 <div style={{marginLeft: '2rem', marginRight: '2rem'}}>
                     <div>
                         <TextInput type="text" placeholder="Email/Phone no."
