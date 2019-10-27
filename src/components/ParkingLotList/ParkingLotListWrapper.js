@@ -12,7 +12,6 @@ export class ParkingLotListWrapper extends Component {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(this.setGeoLocation);
         }
-        this.props.getNearestParkingLotsFromLocation(14.535600800000001, 120.999092);
     }
 
     setGeoLocation = (position) => {
