@@ -41,7 +41,7 @@ export class ParkingLotListWrapper extends Component {
             )
         }
         return (
-            <div>
+            <div style={{display: 'flex', minHeight: '92vh', flexDirection: 'column'}} >
                 <ParkingLotListInput onSetFilter={this.setFilter}/>
                 <ParkingLotList parkingLotList={this.props.parkingLots}/>
             </div>

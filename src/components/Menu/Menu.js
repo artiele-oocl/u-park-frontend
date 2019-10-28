@@ -11,25 +11,34 @@ export default class Menu extends Component {
     render() {
         return(
             <div>
-                <Grid container spacing={3}>
+                <Grid container spacing={3} style=
+                {{
+                    width: '360px',
+                    position: 'fixed',
+                    right: '0px',
+                    left: '12px',
+                    bottom: '0',
+                    textAlign: 'center',
+                    backgroundColor: '#103736'
+                }}>
                     <Grid item xs={3}>
                         <Link to='/parkinglotlist'>
-                            <HomeOutlinedIcon/>
+                            <HomeOutlinedIcon style={{color: 'white'}}/>
                         </Link>
                     </Grid>
                     <Grid item xs={3}>
                         <Link to='/transactions'>
-                            <DescriptionOutlinedIcon/>
+                            <DescriptionOutlinedIcon style={{color: 'white'}}/>
                         </Link>
                     </Grid>
                     <Grid item xs={3}>
                         <Link to='/notifications'>
-                            <NotificationsActiveOutlinedIcon/>
+                            <NotificationsActiveOutlinedIcon style={{color: 'white'}}/>
                         </Link>
                     </Grid>
                     <Grid item xs={3}>
                         <Link to='/wallet'>
-                            <AccountBalanceWalletOutlinedIcon/>
+                            <AccountBalanceWalletOutlinedIcon style={{color: 'white'}}/>
                         </Link>
                     </Grid>
                 </Grid>
