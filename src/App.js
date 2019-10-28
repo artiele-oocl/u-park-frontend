@@ -28,6 +28,26 @@ export default class App extends React.Component {
                             <ParkingLotListContainer/>
                             <Menu/>
                         </Route>
+
+                        <Route path="/transactions">
+                            <ParkingLotListContainer/>
+                            <Menu/>
+                        </Route>
+
+                        <Route path="/notifications">
+                            <ParkingLotListContainer/>
+                            <Menu/>
+                        </Route>
+
+                        <Route path="/wallet">
+                            <ParkingLotListContainer/>
+                            <Menu/>
+                        </Route>
+                        
+                        <Route path="/profile">
+                            <ParkingLotListContainer/>
+                            <Menu/>
+                        </Route>
                     </Switch>
                 </Router>
             </div>
