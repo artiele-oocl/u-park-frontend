@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import ParkingLotList from './ParkingLotList'
 import ParkingLotListInput from './ParkingLotListInput'
+import FakeAuth from "../../FakeAuth";
 
 export class ParkingLotListWrapper extends Component {
 
@@ -10,9 +11,8 @@ export class ParkingLotListWrapper extends Component {
 
 
     componentDidMount() {
-        if (!this.props.isLogedIn) {
-            window.location.href = '/'
-        }
+        let userInformation = FakeAuth.isAuthenticated();
+        console.log(userInformation);
 
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(this.setGeoLocation);

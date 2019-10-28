@@ -7,6 +7,8 @@ export default (state = initialState, {type, payload}) => {
     switch (type) {
         case 'LOG_IN':
             if (payload.id) {
+                sessionStorage['u-park-user-information'] = JSON.stringify(payload);
+                window.location.href = "/parkinglotlist";
                 return {
                     ...state,
                     user: payload,
