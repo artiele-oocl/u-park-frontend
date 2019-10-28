@@ -1,6 +1,7 @@
 import {connect} from 'react-redux'
 import ParkingLotResource from '../api/ParkingLotResource';
 import ParkingLotListWrapper from '../components/ParkingLotList/ParkingLotListWrapper';
+import UserResource from "../api/UserResource";
 
 const mapStateToProps = state => ({
     parkingLots: state.parkingLotResource.parkingLots,
@@ -32,10 +33,10 @@ const mapDispatchToProps = dispatch => ({
         type: 'FILTER_PARKING_LOTS',
         payload: criteria
     }),
-    setSelectedParkingLot: (parkingLot) => dispatch({
-        type: 'SET_PARK_HERE_DETAILS',
-        payload: parkingLot
-    })
+    setSelectedParkingLot: (parkingLotId, userId) => {
+        return ParkingLotResource.setSelectedParkingLot({parkingLotId : parkingLotId, userId: userId})
+            .then(res => res.json())
+    }
 });
 
 export default connect(
