@@ -36,7 +36,7 @@ export class ParkingLotListWrapper extends Component {
     };
 
     setManualLocation = (manualLocationName) => {
-        if(manualLocationName == '') {
+        if(manualLocationName == undefined || manualLocationName == '') {
             this.componentDidMount();
         } else {
             LocationResource.findByName(manualLocationName)
