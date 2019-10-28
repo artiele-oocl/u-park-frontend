@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import logo from '../../logo.jpg'
 import {Link} from 'react-router-dom';
-import {TextInput, Checkbox, Button, Icon} from 'react-materialize';
+import {TextInput, Checkbox, Button} from 'react-materialize';
+import * as M from "materialize-css";
 
 export class RegisterWrapper extends Component {
     state = {
@@ -39,31 +40,31 @@ export class RegisterWrapper extends Component {
 
     isInputValid() {
         if (!this.state.conditionAgreement) {
-            alert('Please check the box to agree in terms and conditions');
+            M.toast({html: 'Please check the box to agree in terms and conditions'});
             return false
         }
         if (!new RegExp(".+@.+\\..+").test(this.state.email)) {
-            alert('Invalid Email');
+            M.toast({html: 'Invalid Email'});
             return false
         }
 
         if (!new RegExp("[0-9]{11}").test(this.state.phoneNumber)) {
-            alert('Invalid Number, must be 11-digit number');
+            M.toast({html: 'Invalid Number, must be 11-digit number'});
             return false
         }
 
         if (!new RegExp("[a-zA-Z0-9]{5}").test(this.state.name)) {
-            alert('Invalid Name, must contain at least 5 characters');
+            M.toast({html: 'Invalid Name, must contain at least 5 characters'});
             return false
         }
 
         if (!new RegExp("[a-zA-Z0-9]{3}").test(this.state.password)) {
-            alert('Invalid Name, must contain at least 3 characters');
+            M.toast({html: 'Invalid Name, must contain at least 3 characters'});
             return false
         }
 
         if (this.state.password !== this.state.confirmPassword) {
-            alert('Passwords do not match');
+            M.toast({html: 'Passwords do not match'});
             return false
         }
 
@@ -72,7 +73,7 @@ export class RegisterWrapper extends Component {
         );
 
         if (isExist) {
-            alert('Email or phone number already exist');
+            M.toast({html: 'Email or phone number already exist'});
             return false
         }
         return true;
