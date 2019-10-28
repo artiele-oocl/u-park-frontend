@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import logo from '../../logo.png'
 import {Link} from 'react-router-dom';
-import {Button, Checkbox, TextInput} from 'react-materialize';
+import {TextInput, Checkbox, Button} from 'react-materialize';
+import * as M from "materialize-css";
 
 export class RegisterWrapper extends Component {
     state = {
@@ -28,38 +29,42 @@ export class RegisterWrapper extends Component {
                 confirmPassword: this.state.confirmPassword
             };
             let status = this.props.createUser(newUser);
-            status.then(res => console.log(res));
-            window.location.href = '/';
+            status.then(user => {
+                    if (user.id !== null) {
+                        window.location.href = '/';
+                    }
+                }
+            );
         }
     };
 
     isInputValid() {
         if (!this.state.conditionAgreement) {
-            alert('Please check the box to agree in terms and conditions');
+            M.toast({html: 'Please check the box to agree in terms and conditions'});
             return false
         }
         if (!new RegExp(".+@.+\\..+").test(this.state.email)) {
-            alert('Invalid Email');
+            M.toast({html: 'Invalid Email'});
             return false
         }
 
         if (!new RegExp("[0-9]{11}").test(this.state.phoneNumber)) {
-            alert('Invalid Number, must be 11-digit number');
+            M.toast({html: 'Invalid Number, must be 11-digit number'});
             return false
         }
 
         if (!new RegExp("[a-zA-Z0-9]{5}").test(this.state.name)) {
-            alert('Invalid Name, must contain at least 5 characters');
+            M.toast({html: 'Invalid Name, must contain at least 5 characters'});
             return false
         }
 
         if (!new RegExp("[a-zA-Z0-9]{3}").test(this.state.password)) {
-            alert('Invalid Name, must contain at least 3 characters');
+            M.toast({html: 'Invalid Name, must contain at least 3 characters'});
             return false
         }
 
         if (this.state.password !== this.state.confirmPassword) {
-            alert('Passwords do not match');
+            M.toast({html: 'Passwords do not match'});
             return false
         }
 
@@ -68,7 +73,7 @@ export class RegisterWrapper extends Component {
         );
 
         if (isExist) {
-            alert('Email or phone number already exist');
+            M.toast({html: 'Email or phone number already exist'});
             return false
         }
         return true;
@@ -105,12 +110,24 @@ export class RegisterWrapper extends Component {
                     <img style={{padding: '10px', width: '250px'}} src={logo} alt='logo'/>
                 </div>
                 <form onSubmit={this.onSubmit} style={{marginLeft: '2rem', marginRight: '2rem'}}>
-                    <TextInput onChange={this.onChangeEmail} placeholder="Email"/>
-                    <TextInput onChange={this.onChangePhoneNumber} placeholder="Phone Number"/>
-                    <TextInput onChange={this.onChangeName} placeholder="Name"/>
-                    <TextInput type="password" onChange={this.onChangePassword} placeholder="Password"/>
-                    <TextInput type="password" onChange={this.onChangeConfirmPassword} placeholder="Confirm Password"/>
-                    <Checkbox onChange={this.onChangeConditionAgreement} value="agree" label="I agree to"/>
+                    <TextInput icon="email" label="Email/Phone No."
+                               onChange={this.onChangeEmail}
+                               email validate
+                               error="INVALID EMAIL" required/>
+                    <TextInput icon="local_phone" label="Phone Number"
+                               onChange={this.onChangePhoneNumber}
+                               maxLength={11} required/>
+                    <TextInput icon="person" label="Full Name"
+                               onChange={this.onChangeName}
+                               required/>
+                    <TextInput icon="lock" label="Password"
+                               onChange={this.onChangePassword}
+                               password required/>
+                    <TextInput icon="lock" label="Confirm Password"
+                               onChange={this.onChangeConfirmPassword}
+                               password required/>
+
+                    <Checkbox label="I agree to" onChange={this.onChangeConditionAgreement} value="agree"/>
                     <Link to="/terms"> Terms and Conditions</Link>
                     <Button type="submit" waves="light" style={{marginRight: '5px', marginTop: '2rem', width: '100%'}}>
                         Submit

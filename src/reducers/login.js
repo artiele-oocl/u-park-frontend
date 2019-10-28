@@ -1,3 +1,5 @@
+import * as M from "materialize-css";
+
 const initialState = {
     user: {},
     isLogIn: false
@@ -13,6 +15,7 @@ export default (state = initialState, {type, payload}) => {
                     isLogIn: true
                 }
             }
+            M.toast({html: 'Invalid Login'});
             return {
                 ...state,
                 user: {},

@@ -33,11 +33,12 @@ export default class LogIn extends Component {
                 <img style={{padding: '10px', width: '250px'}} src={logo} alt='logo'/>
                 <div style={{marginLeft: '2rem', marginRight: '2rem'}}>
                     <div>
-                        <TextInput type="text" placeholder="Email/Phone no."
+                        <TextInput type="text" label="Email/Phone No."
                                    onChange={this.onChangeEmailOrPhoneNumber}/>
                     </div>
                     <div>
-                        <TextInput type="password" placeholder="Password" onChange={this.onChangePassword}/>
+                        <TextInput type="password" label="Password"
+                                   onChange={this.onChangePassword}/>
                     </div>
                     <Link to="/register" style={{float: 'left'}}> Sign Up!</Link>
                     <br/>
