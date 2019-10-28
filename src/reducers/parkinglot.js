@@ -21,7 +21,7 @@ export default (state = initialState, {type, payload}) => {
             } else if (payload === 'Price') {
                 orderedParkingLots = state.parkingLots.sort((lotA, lotB) => parseFloat(lotA.rate) - parseFloat(lotB.rate));
             } else if (payload === 'Rating') {
-                orderedParkingLots = state.parkingLots.sort((lotA, lotB) => (lotA.rating < lotB.rating) ? 1 : -1)
+                orderedParkingLots = state.parkingLots.sort((lotA, lotB) => lotB.starRating - lotA.starRating);
             }
             return {
                 ...state,
