@@ -43,7 +43,7 @@ export class ParkingLotListWrapper extends Component {
             .then(res => res.json())
             .then(res => {
                 if (res.length > 0) {
-                    res.foreach(loc => {
+                    res.forEach(loc => {
                         const latitude = loc.latitude;
                         const longitude = loc.longitude;
                         this.props.getNearestParkingLotsFromLocation(latitude, longitude);
