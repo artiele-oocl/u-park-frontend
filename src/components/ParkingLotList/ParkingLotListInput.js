@@ -33,7 +33,7 @@ export default class ParkingLotListInput extends Component {
     }
 
     clearInput = (event) => {
-        if (event.target.value == '') {
+        if (event.target.value === '') {
             this.props.onSetManualLocation('');
         }
     }

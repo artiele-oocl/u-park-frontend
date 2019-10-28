@@ -36,14 +36,14 @@ export class ParkingLotListWrapper extends Component {
     };
 
     setManualLocation = (manualLocationName) => {
-        if(manualLocationName == undefined || manualLocationName == '') {
+        if(manualLocationName === undefined || manualLocationName === '') {
             this.componentDidMount();
         } else {
             LocationResource.findByName(manualLocationName)
             .then(res => res.json())
             .then(res => {
                 if (res.length > 0) {
-                    res.map(loc => {
+                    res.foreach(loc => {
                         const latitude = loc.latitude;
                         const longitude = loc.longitude;
                         this.props.getNearestParkingLotsFromLocation(latitude, longitude);
