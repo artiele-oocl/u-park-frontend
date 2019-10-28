@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import logo from '../../logo.jpg'
+import logo from '../../logo.png'
 import {Link} from 'react-router-dom';
 import {Button, Checkbox, TextInput} from 'react-materialize';
 

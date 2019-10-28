@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import logo from '../../logo.jpg'
+import logo from '../../logo.png'
 import {Button, TextInput} from 'react-materialize';
 
 export default class LogIn extends Component {
@@ -26,6 +26,10 @@ export default class LogIn extends Component {
 
         return (
             <div className="todo-wrapper">
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
                 <img style={{padding: '10px', width: '250px'}} src={logo} alt='logo'/>
                 <div style={{marginLeft: '2rem', marginRight: '2rem'}}>
                     <div>

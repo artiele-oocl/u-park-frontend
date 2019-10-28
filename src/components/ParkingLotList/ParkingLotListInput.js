@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import {Select} from 'react-materialize';
+import {Select, Row, Col} from 'react-materialize';
+import logo from "../../logo.png";
 
 export default class ParkingLotListInput extends Component {
 
@@ -15,6 +16,10 @@ export default class ParkingLotListInput extends Component {
     render() {
         return (
             <div className="todo-input">
+                <br></br>
+                <Row>
+                <img style={{ width: '120px', height: '70px'}} src={logo} alt='logo'/>
+                </Row>
                 <Select value={this.state.inputValue} onChange={this.handleInputChange}>
                     <option value="Default" disabled>
                         Sort by...

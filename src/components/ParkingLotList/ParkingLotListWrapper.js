@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import ParkingLotList from './ParkingLotList'
 import ParkingLotListInput from './ParkingLotListInput'
+import gpsNotAvailable from '../../gpsNotAvailable.png'
 
 export class ParkingLotListWrapper extends Component {
 
@@ -37,7 +38,19 @@ export class ParkingLotListWrapper extends Component {
     render() {
         if (!this.state.isGeolocationAvailable) {
             return (
-                <div>GPS not available</div>
+                <div>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <img src={gpsNotAvailable}/>
+                    <br></br>
+                    <p>
+                        PLEASE TURN ON YOUR GPS
+                    </p>
+                </div>
+
             )
         }
         return (
