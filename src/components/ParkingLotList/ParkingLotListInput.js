@@ -6,8 +6,7 @@ export default class ParkingLotListInput extends Component {
 
     state = {
         sortCriteria: 'Default',
-        locations: null,
-        locationInput: ''
+        locations: null
     };
 
     componentDidMount() {
@@ -20,7 +19,6 @@ export default class ParkingLotListInput extends Component {
     };
 
     onChangeManualLocation = (chosenLocation) => {
-        this.setState({locationInput:chosenLocation})
         this.props.onSetManualLocation(chosenLocation);
     }
 
@@ -35,6 +33,7 @@ export default class ParkingLotListInput extends Component {
     }
 
     clearInput = (event) => {
+        this.setState({locationInput:event.target.value})
         if (event.target.value == '') {
             this.props.onSetManualLocation('');
         }
@@ -46,7 +45,7 @@ export default class ParkingLotListInput extends Component {
         }
         return (
             <div className="todo-input">
-                <Autocomplete value={this.state.locationInput} options={{data:this.state.locations, onAutocomplete:this.onChangeManualLocation}} placeholder="Choose your location" onChange={this.clearInput}/>
+                <Autocomplete options={{data:this.state.locations, onAutocomplete:this.onChangeManualLocation}} placeholder="Choose your location" onChange={this.clearInput}/>
                 <Select value={this.state.sortCriteria} onChange={this.handleInputChange}>
                     <option value="Default" disabled>
                         Sort by...
