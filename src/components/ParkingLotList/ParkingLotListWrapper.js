@@ -35,16 +35,16 @@ export class ParkingLotListWrapper extends Component {
         this.forceUpdate();
     };
 
+    setSelectedParkingLot = (parkingLot) => {
+        this.props.setSelectedParkingLot(parkingLot);
+    }
+
     render() {
         if (!this.state.isGeolocationAvailable) {
             return (
                 <div>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <img src={gpsNotAvailable}/>
+
+                    <img src={gpsNotAvailable} style ={{marginTop: '2rem'}}/>
                     <br></br>
                     <p>
                         PLEASE TURN ON YOUR GPS
@@ -56,7 +56,7 @@ export class ParkingLotListWrapper extends Component {
         return (
             <div>
                 <ParkingLotListInput onSetFilter={this.setFilter}/>
-                <ParkingLotList parkingLotList={this.props.parkingLots}/>
+                <ParkingLotList parkingLotList={this.props.parkingLots} selectedParkingLot={this.setSelectedParkingLot}/>
             </div>
         )
     }

@@ -30,6 +30,10 @@ const mapDispatchToProps = dispatch => ({
     filterParkingLotsByCriteria: (criteria) => dispatch({
         type: 'FILTER_PARKING_LOTS',
         payload: criteria
+    }),
+    setSelectedParkingLot: (parkingLot) => dispatch({
+        type: 'SET_PARK_HERE_DETAILS',
+        payload: parkingLot
     })
 });
 

@@ -1,5 +1,6 @@
 const initialState = {
-    parkingLots: []
+    parkingLots: [],
+    selectedParkingLot:{}
 };
 
 export default (state = initialState, {type, payload}) => {
@@ -26,6 +27,11 @@ export default (state = initialState, {type, payload}) => {
             return {
                 ...state,
                 parkingLots: orderedParkingLots
+            };
+        case "SET_PARK_HERE_DETAILS":
+            return {
+                ...state,
+                selectedParkingLot: payload,
             };
         default:
             return state;
