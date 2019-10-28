@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import logo from '../../logo.jpg'
 import {Link} from 'react-router-dom';
-import {Button, Checkbox, TextInput} from 'react-materialize';
+import {TextInput, Checkbox, Button, Icon} from 'react-materialize';
 
 export class RegisterWrapper extends Component {
     state = {
@@ -105,12 +105,24 @@ export class RegisterWrapper extends Component {
                     <img style={{padding: '10px', width: '250px'}} src={logo} alt='logo'/>
                 </div>
                 <form onSubmit={this.onSubmit} style={{marginLeft: '2rem', marginRight: '2rem'}}>
-                    <TextInput onChange={this.onChangeEmail} placeholder="Email"/>
-                    <TextInput onChange={this.onChangePhoneNumber} placeholder="Phone Number"/>
-                    <TextInput onChange={this.onChangeName} placeholder="Name"/>
-                    <TextInput type="password" onChange={this.onChangePassword} placeholder="Password"/>
-                    <TextInput type="password" onChange={this.onChangeConfirmPassword} placeholder="Confirm Password"/>
-                    <Checkbox onChange={this.onChangeConditionAgreement} value="agree" label="I agree to"/>
+                    <TextInput icon="email" label="Email/Phone No."
+                               onChange={this.onChangeEmail}
+                               email validate
+                               error="INVALID EMAIL" required/>
+                    <TextInput icon="local_phone" label="Phone Number"
+                               onChange={this.onChangePhoneNumber}
+                               maxLength={11} required/>
+                    <TextInput icon="person" label="Full Name"
+                               onChange={this.onChangeName}
+                               required/>
+                    <TextInput icon="lock" label="Password"
+                               onChange={this.onChangePassword}
+                               password required/>
+                    <TextInput icon="lock" label="Confirm Password"
+                               onChange={this.onChangeConfirmPassword}
+                               password required/>
+
+                    <Checkbox label="I agree to" onChange={this.onChangeConditionAgreement} value="agree"/>
                     <Link to="/terms"> Terms and Conditions</Link>
                     <Button type="submit" waves="light" style={{marginRight: '5px', marginTop: '2rem', width: '100%'}}>
                         Submit
