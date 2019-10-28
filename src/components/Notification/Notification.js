@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 import logo from '../../logo.jpg'
-import { Row, Col, CollapsibleItem, Icon , Collapsible } from 'react-materialize';
+import { Row, Col, CollapsibleItem, Collapsible } from 'react-materialize';
 import ArrowDropDownOutlinedIcon from '@material-ui/icons/ArrowDropDownOutlined';
 import './Notification.css'
 
