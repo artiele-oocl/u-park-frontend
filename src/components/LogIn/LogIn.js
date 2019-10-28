@@ -22,6 +22,8 @@ export default class LogIn extends Component {
     };
 
     render() {
+        this.props.checkLogin(this.props.isLogIn);
+
         return (
             <div className="todo-wrapper">
                 <img style={{padding: '10px', width: '250px'}} src={logo} alt='logo'/>

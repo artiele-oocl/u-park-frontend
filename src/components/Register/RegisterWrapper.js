@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import logo from '../../logo.jpg'
 import {Link} from 'react-router-dom';
-import {Button, TextInput, Checkbox} from 'react-materialize';
+import {Button, Checkbox, TextInput} from 'react-materialize';
 
 export class RegisterWrapper extends Component {
     state = {
@@ -29,8 +29,7 @@ export class RegisterWrapper extends Component {
             };
             let status = this.props.createUser(newUser);
             status.then(res => console.log(res));
-            // If res.code === undefined then redirect to login page
-            // Else remain at Register page while retaining original input values
+            window.location.href = '/';
         }
     };
 

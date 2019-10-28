@@ -4,7 +4,7 @@ import UserResource from '../api/UserResource';
 
 const mapStateToProps = state => ({
     user: state.loginResource.user,
-    isLogin: state.loginResource.isLogin
+    isLogIn: state.loginResource.isLogIn
 });
 
 const mapDispatchToProps = dispatch => ({

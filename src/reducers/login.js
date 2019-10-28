@@ -7,7 +7,6 @@ export default (state = initialState, {type, payload}) => {
     switch (type) {
         case 'LOG_IN':
             if (payload.id) {
-                alert("Login Successful");
                 return {
                     ...state,
                     user: payload,
