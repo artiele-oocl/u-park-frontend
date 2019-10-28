@@ -8,7 +8,12 @@ export class ParkingLotListWrapper extends Component {
         isGeolocationAvailable: false
     };
 
+
     componentDidMount() {
+        if (!this.props.isLogedIn) {
+            window.location.href = '/'
+        }
+
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(this.setGeoLocation);
         }
@@ -40,6 +45,9 @@ export class ParkingLotListWrapper extends Component {
                 <div>GPS not available</div>
             )
         }
+
+
+
         return (
             <div>
                 <ParkingLotListInput onSetFilter={this.setFilter}/>
