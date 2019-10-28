@@ -1,0 +1,11 @@
+
+.collapsible-header {
+    border-top: 1px solid #389793!important;
+    border-bottom: none!important;
+    /* border-right: 1px solid #389793!important; */
+    /* border-left: 1px solid #389793!important; */
+}
+
+.collapsible-header {
+    font-weight: 500;
+}

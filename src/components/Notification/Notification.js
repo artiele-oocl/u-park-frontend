@@ -1,40 +1,38 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import logo from '../../logo.jpg'
-import {Collection, CollectionItem, Row, Col} from 'react-materialize';
-export class Notification extends Component {
-    render() {
+import { Row, Col, CollapsibleItem, Icon , Collapsible } from 'react-materialize';
+import ArrowDropDownOutlinedIcon from '@material-ui/icons/ArrowDropDownOutlined';
+import './Notification.css'
+
+export default function Notification() {
+    
         return (
             <div>
-            <Row>
-                <Col style={{float: 'left', textAlign: 'left'}}><img style={{padding: '5px', width: '100px', align: 'left'}} src={logo} alt='logo'/>
-                </Col>
-            </Row>
-               <Row>
-               <Col style={{float: 'left', textAlign: 'left'}}>
-                Notifications
-                </Col>
-                </Row>
-
                 <Row>
-                    <Col m={6} s={12}>
-                        <Collection>
-                            <CollectionItem>
-                                <Row>
-                                    <Col style={{float: 'left', textAlign: 'left'}}>
-                                        Title
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col style={{float: 'left', fontSize: '11px'}}>
-                                        Description
-                                    </Col>
-                                </Row>
-                            </CollectionItem>
-                        </Collection>
+                    <Col style={{ float: 'left', textAlign: 'left' }}><img style={{ padding: '5px', width: '100px', align: 'left' }} src={logo} alt='logo' />
                     </Col>
                 </Row>
+
+                <div style = {{marginLeft: '15px', marginRight: '15px'}}>
+                    <Row>
+                        <Col>Notifications</Col>
+                    </Row>
+                    
+                    <Row>
+                        <Collapsible className = "colapse">
+                            <CollapsibleItem header="Better safe than sorry. That's my motto."  icon ={ <ArrowDropDownOutlinedIcon/>}>
+                                <span  style={{color: 'grey'}}>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem .</span>
+                            </CollapsibleItem>
+                            <CollapsibleItem header="Drive safely!"  icon ={ <ArrowDropDownOutlinedIcon/>}>
+                                <span  style={{color: 'grey'}}>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem .</span>
+                            </CollapsibleItem>
+                            <CollapsibleItem header="UPark promos..."  icon ={ <ArrowDropDownOutlinedIcon/>}>
+                            <span  style={{color: 'grey'}}>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem .</span>
+                            </CollapsibleItem>
+                        </Collapsible>
+                    </Row>
+                </div>
+
             </div>
         )
-    }
 }
-export default Notification;
