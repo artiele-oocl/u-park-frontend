@@ -8,6 +8,7 @@ import {
     Route
 } from "react-router-dom"
 import ParkingLotListContainer from './containers/ParkingLotListContainer';
+import Notification from './components/Notification/Notification';
 
 export default class App extends React.Component {
     render() {
@@ -25,6 +26,10 @@ export default class App extends React.Component {
 
                         <Route path="/parkinglotlist">
                             <ParkingLotListContainer/>
+                        </Route>
+
+                        <Route path="/notification">
+                            <Notification/>
                         </Route>
                     </Switch>
                 </Router>

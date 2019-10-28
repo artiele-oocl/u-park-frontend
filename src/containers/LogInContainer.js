@@ -30,4 +30,3 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(LogIn)
-  
