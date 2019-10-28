@@ -3,7 +3,8 @@ import ParkingLotResource from '../api/ParkingLotResource';
 import ParkingLotListWrapper from '../components/ParkingLotList/ParkingLotListWrapper';
 
 const mapStateToProps = state => ({
-    parkingLots: state.parkingLotResource.parkingLots
+    parkingLots: state.parkingLotResource.parkingLots,
+    criteria: state.parkingLotResource.criteria
 });
 
 const mapDispatchToProps = dispatch => ({

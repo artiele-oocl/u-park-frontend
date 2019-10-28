@@ -21,7 +21,7 @@ export class ParkingLotListWrapper extends Component {
         const longitude = position.coords.longitude;
 
         this.props.getNearestParkingLotsFromLocation(latitude, longitude);
-        this.props.filterParkingLotsByCriteria('Default');
+        this.props.filterParkingLotsByCriteria(this.props.criteria);
     };
 
     setFilter = (filter) => {
@@ -47,11 +47,8 @@ export class ParkingLotListWrapper extends Component {
                         const latitude = loc.latitude;
                         const longitude = loc.longitude;
                         this.props.getNearestParkingLotsFromLocation(latitude, longitude);
-                        this.props.filterParkingLotsByCriteria('Default');
+                        this.props.filterParkingLotsByCriteria(this.props.criteria);
                     })
-                }else{
-                    this.props.getNearestParkingLotsFromLocation(0, 0);
-                    this.props.filterParkingLotsByCriteria('Default');
                 }
             });
         }
