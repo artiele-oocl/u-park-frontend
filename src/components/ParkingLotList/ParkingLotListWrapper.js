@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import ParkingLotList from './ParkingLotList'
 import ParkingLotListInput from './ParkingLotListInput'
+import LocationResource from '../../api/LocationResource';
 
 export class ParkingLotListWrapper extends Component {
 
@@ -34,6 +35,28 @@ export class ParkingLotListWrapper extends Component {
         this.forceUpdate();
     };
 
+    setManualLocation = (manualLocationName) => {
+        if(manualLocationName == '') {
+            this.componentDidMount();
+        } else {
+            LocationResource.findByName(manualLocationName)
+            .then(res => res.json())
+            .then(res => {
+                if (res.length > 0) {
+                    res.map(loc => {
+                        const latitude = loc.latitude;
+                        const longitude = loc.longitude;
+                        this.props.getNearestParkingLotsFromLocation(latitude, longitude);
+                        this.props.filterParkingLotsByCriteria('Default');
+                    })
+                }else{
+                    this.props.getNearestParkingLotsFromLocation(0, 0);
+                    this.props.filterParkingLotsByCriteria('Default');
+                }
+            });
+        }
+    }
+
     render() {
         if (!this.state.isGeolocationAvailable) {
             return (
@@ -42,7 +65,7 @@ export class ParkingLotListWrapper extends Component {
         }
         return (
             <div>
-                <ParkingLotListInput onSetFilter={this.setFilter}/>
+                <ParkingLotListInput onSetFilter={this.setFilter} onSetManualLocation={this.setManualLocation}/>
                 <ParkingLotList parkingLotList={this.props.parkingLots}/>
             </div>
         )
