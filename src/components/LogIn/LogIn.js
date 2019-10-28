@@ -22,7 +22,6 @@ export default class LogIn extends Component {
     };
 
     render() {
-        this.props.checkLogin(this.props.isLogIn);
 
         return (
             <div className="todo-wrapper">

@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import ParkingLotList from './ParkingLotList'
 import ParkingLotListInput from './ParkingLotListInput'
 import gpsNotAvailable from '../../gpsNotAvailable.png'
+import FakeAuth from "../../FakeAuth";
 
 export class ParkingLotListWrapper extends Component {
 
@@ -9,7 +10,11 @@ export class ParkingLotListWrapper extends Component {
         isGeolocationAvailable: false
     };
 
+
     componentDidMount() {
+        let userInformation = FakeAuth.isAuthenticated();
+        console.log(userInformation);
+
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(this.setGeoLocation);
         }
@@ -38,21 +43,12 @@ export class ParkingLotListWrapper extends Component {
     render() {
         if (!this.state.isGeolocationAvailable) {
             return (
-                <div>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <img src={gpsNotAvailable}/>
-                    <br></br>
-                    <p>
-                        PLEASE TURN ON YOUR GPS
-                    </p>
-                </div>
-
+                <div>GPS not available</div>
             )
         }
+
+
+
         return (
             <div>
                 <ParkingLotListInput onSetFilter={this.setFilter}/>

@@ -4,18 +4,13 @@ import LogInContainer from './containers/LogInContainer'
 import './App.css'
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import ParkingLotListContainer from './containers/ParkingLotListContainer';
+import FakeAuth from "./FakeAuth";
 
-export default class App extends React.Component {
+class App extends React.Component {
 
-    state = {
-        isLogedIn: false
-    }
-
-    checkLogin = (isLogedIn) => {
-        if (isLogedIn) {
-            this.setState({isLogedIn: true})
-            window.location.href = '/parkinglotlist';
-        }
+    componentDidMount() {
+        // This is for reset of session because there is still no logout
+        // FakeAuth.logMeOut();
     }
 
     render() {
@@ -25,7 +20,7 @@ export default class App extends React.Component {
                     <Switch>
 
                         <Route exact path="/">
-                            <LogInContainer checkLogin = {this.checkLogin}/>
+                            <LogInContainer />
                         </Route>
 
                         <Route path="/register">
@@ -42,3 +37,5 @@ export default class App extends React.Component {
         );
     }
 }
+
+export default App
