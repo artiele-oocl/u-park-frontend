@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
 import ParkingLot from './ParkingLot'
-import {Collection, CollectionItem, Row, Col} from 'react-materialize';
+import ParkingLotModal from "./ParkingLotModal";
+import {Collection, CollectionItem, Row, Col, Modal, Button} from 'react-materialize';
+
 
 export class ParkingLotList extends Component {
-
     render() {
         const {parkingLotList} = this.props;
         return (
@@ -12,17 +13,26 @@ export class ParkingLotList extends Component {
                     <Col m={6} s={12}>
                         <Collection>
                             {parkingLotList.map((parkingLot, i) =>
-                                <CollectionItem href="#" key={i}>
-                                    <ParkingLot parkingLot={parkingLot}/>
-                                </CollectionItem>
+                                <Modal bottomSheet trigger={
+                                    <CollectionItem href="#" key={i} onClick={this.showModal}>
+                                        <ParkingLot parkingLot={parkingLot} />
+
+                                    </CollectionItem>
+                                }>
+                                    <ParkingLotModal parkingLot={parkingLot}/>
+                                </Modal>
                             )}
+
                         </Collection>
+
                     </Col>
                 </Row>
+
             </div>
 
         )
     }
+
 }
 
 export default ParkingLotList
