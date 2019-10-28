@@ -44,7 +44,8 @@ export default class ParkingLotListInput extends Component {
             return <div />
         }
         return (
-            <div className="todo-input">
+
+            <div className="todo-input" style={{marginLeft: '1rem', marginRight: '1rem'}}>
                 <br></br>
                 <Row>
                 <img style={{ width: '120px', height: '70px'}} src={logo} alt='logo'/>
