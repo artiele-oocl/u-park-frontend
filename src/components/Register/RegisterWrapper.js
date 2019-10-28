@@ -28,8 +28,12 @@ export class RegisterWrapper extends Component {
                 confirmPassword: this.state.confirmPassword
             };
             let status = this.props.createUser(newUser);
-            status.then(res => console.log(res));
-            window.location.href = '/';
+            status.then(user => {
+                    if (user.id !== null) {
+                        window.location.href = '/';
+                    }
+                }
+            );
         }
     };
 
