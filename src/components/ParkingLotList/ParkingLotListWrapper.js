@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import ParkingLotList from './ParkingLotList'
 import ParkingLotListInput from './ParkingLotListInput'
 import gpsNotAvailable from '../../gpsNotAvailable.png'
+import LocationResource from '../../api/LocationResource';
 import FakeAuth from "../../FakeAuth";
 
 export class ParkingLotListWrapper extends Component {
@@ -26,7 +27,7 @@ export class ParkingLotListWrapper extends Component {
         const longitude = position.coords.longitude;
 
         this.props.getNearestParkingLotsFromLocation(latitude, longitude);
-        this.props.filterParkingLotsByCriteria('Default');
+        this.props.filterParkingLotsByCriteria(this.props.criteria);
     };
 
     setFilter = (filter) => {
@@ -40,6 +41,25 @@ export class ParkingLotListWrapper extends Component {
         this.forceUpdate();
     };
 
+    setManualLocation = (manualLocationName) => {
+        if(manualLocationName === undefined || manualLocationName === '') {
+            this.componentDidMount();
+        } else {
+            LocationResource.findByName(manualLocationName)
+            .then(res => res.json())
+            .then(res => {
+                if (res.length > 0) {
+                    res.forEach(loc => {
+                        const latitude = loc.latitude;
+                        const longitude = loc.longitude;
+                        this.props.getNearestParkingLotsFromLocation(latitude, longitude);
+                        this.props.filterParkingLotsByCriteria(this.props.criteria);
+                    })
+                }
+            });
+        }
+    }
+
     render() {
         if (!this.state.isGeolocationAvailable) {
             return (
@@ -51,7 +71,7 @@ export class ParkingLotListWrapper extends Component {
 
         return (
             <div style={{display: 'flex', minHeight: '92vh', flexDirection: 'column'}} >
-                <ParkingLotListInput onSetFilter={this.setFilter}/>
+                <ParkingLotListInput onSetFilter={this.setFilter} onSetManualLocation={this.setManualLocation}/>
                 <ParkingLotList parkingLotList={this.props.parkingLots}/>
             </div>
         )
