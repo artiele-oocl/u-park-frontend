@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Row, Col, Button} from 'react-materialize';
 import StarRatings from "react-star-ratings";
-import parkinglot from "../../reducers/parkinglot";
 
 export default class ParkingLotModal extends Component {
     state = {
@@ -37,7 +36,9 @@ export default class ParkingLotModal extends Component {
                         <Button style={{marginRight: '5px', marginTop: '2rem', width: '100%'}} onClick={this.selectedParkingLot}> Park Here </Button>
                     </Col>
                     <Col m={6} s={12}>
-                        <Button style={{marginRight: '5px', marginTop: '5px', width: '100%'}}> Open in Waze </Button>
+
+                        <Button style={{marginRight: '5px', marginTop: '5px', width: '100%'}}  onClick={()=> window.open("https://waze.com/ul?q="+this.state.parkingLot.name+", "+this.state.parkingLot.address)}> Open in Waze </Button>
+
                     </Col>
                 </Row>
             </div>
