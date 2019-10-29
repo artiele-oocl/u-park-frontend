@@ -5,13 +5,29 @@ import './TransactionOrder.css';
 import chevrondown from "../../chevrondown.png";
 
 export default class TransactionOrder extends Component {
+
+    getStarRating = (starRating) => {
+        if (starRating > 0) {
+            return <StarRatings
+                rating={starRating}
+                starRatedColor="orange"
+                numberOfStars={5}
+                starDimension="12px"
+                starSpacing="0.5px"
+                name='rating'>
+            </StarRatings>
+        } else {
+            return <div>Not rated</div>
+        }
+    }
+
     render() {
         const { transactionOrder } = this.props;
         const transactionSummary = <div>
-                        {transactionOrder.parkingLotName}<br />
-                        <span style={{ fontSize: '11px' }}>Total: {transactionOrder.totalFee}</span>
-                        <i class="chevron"><img style={{ width: '20px', height: '20px' }} src={chevrondown}></img></i>
-                    </div>;
+            {transactionOrder.parkingLotName}<br />
+            <span style={{ fontSize: '11px' }}>Total: {transactionOrder.totalFee}</span>
+            <i class="chevron"><img style={{ width: '20px', height: '20px' }} src={chevrondown}></img></i>
+        </div>;
         return (
             <div>
                 <Collapsible className="transaction-order-list">
@@ -20,23 +36,15 @@ export default class TransactionOrder extends Component {
                             <Row>
                                 <Col>Check-in:</Col>
                                 <Col>{transactionOrder.checkIn}</Col>
-                            </Row>                        
+                            </Row>
                             <Row>
                                 <Col>Check-out:</Col>
                                 <Col>{transactionOrder.checkOut}</Col>
-                            </Row>                                                                                     
+                            </Row>
                             <Row>
                                 <Col>Your rating:</Col>
                                 <Col>
-                                    <StarRatings
-                                        rating={transactionOrder.starRating}
-                                        starRatedColor="orange"
-                                        numberOfStars={5}
-                                        starDimension="12px"
-                                        starSpacing="0.5px"
-                                        name='rating'>
-
-                                    </StarRatings>
+                                    {this.getStarRating(transactionOrder.starRating)}
                                 </Col>
                             </Row>
                         </span>
