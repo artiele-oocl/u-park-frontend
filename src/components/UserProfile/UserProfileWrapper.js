@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import FakeAuth from "../../FakeAuth";
 import {Button, TextInput} from 'react-materialize';
-import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
+// import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import * as M from "materialize-css";
 
 export class UserProfileWrapper extends Component {
@@ -72,7 +73,7 @@ export class UserProfileWrapper extends Component {
 
                <div style={{backgroundColor:'#26A69A', height: '55vh'}}>
                    <Button flat waves="light" style = {{ float:'right', marginTop: '3%', color:'white' }}onClick = {this.onSave}>Save</Button>
-                   <AccountCircleOutlinedIcon  style={{fontSize: '25rem', color: '#fff'}}/>
+                   <AccountCircleIcon  style={{fontSize: '25rem', color: '#fff'}}/>
                </div>
 
                <div style = {{padding:'2rem'}}>
