@@ -2,8 +2,7 @@ class FakeAuth {
 
     isAuthenticated() {
         try {
-            let userInformation = JSON.parse(sessionStorage['u-park-user-information']);
-            return userInformation;
+            return JSON.parse(sessionStorage['u-park-user-information']);
         } catch {
             window.location.href = '/';
         }
