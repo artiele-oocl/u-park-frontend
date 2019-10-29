@@ -31,7 +31,8 @@ export class RegisterWrapper extends Component {
             let status = this.props.createUser(newUser);
             status.then(user => {
                     if (user.id !== null) {
-                        window.location.href = '/';
+                        M.toast({html: 'Registration complete! Please wait...'});
+                        setTimeout(function(){window.location.href="/"} , 3000);
                     }
                 }
             );
@@ -128,7 +129,6 @@ export class RegisterWrapper extends Component {
                                password required/>
 
                     <Checkbox label="I agree to" onChange={this.onChangeConditionAgreement} value="agree"/>
-                    {/* <Link to="/terms"> Terms and Conditions</Link> */}
                     
                     <Modal header="Terms and Conditions" bottomSheet trigger={<Link> Terms and Conditions</Link>}>
 General Site Usage<br/>
