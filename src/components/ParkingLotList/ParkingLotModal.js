@@ -1,14 +1,21 @@
 import React, {Component} from 'react';
 import {Row, Col, Button} from 'react-materialize';
 import StarRatings from "react-star-ratings";
+import FakeAuth from "../../FakeAuth";
+
 
 export default class ParkingLotModal extends Component {
+
+    componentDidMount() {
+        let userInformation = FakeAuth.isAuthenticated();
+    }
+
     state = {
         parkingLot: this.props.parkingLot
     }
 
     selectedParkingLot = () =>{
-        this.props.selectParkingLot(this.state.parkingLot);
+        this.props.selectParkingLot(this.state.parkingLot.id);
     }
     render() {
         return (
