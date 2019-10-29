@@ -17,7 +17,13 @@ const mapDispatchToProps = dispatch => ({
                     payload: transactionDetails
                 })
             });
+    },
+
+    addRating: (transactionId, rating) => {
+        const transaction = {id : transactionId, starRating: rating};
+        CheckoutResource.patchRating(transaction) ;
     }
+
 });
 
 export default connect(

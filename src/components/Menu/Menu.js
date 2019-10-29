@@ -13,7 +13,7 @@ export default class Menu extends Component {
             <div>
                 <Grid container spacing={3} style=
                 {{
-                    width: '360px',
+                    width: '100%',
                     position: 'fixed',
                     right: '0px',
                     left: '12px',

@@ -4,13 +4,6 @@ import {Col, Row} from 'react-materialize';
 export default class CheckoutDetails extends React.Component {
 
     render() {
-        // const {parkingLot, transactionOrder} = this.props.checkoutDetails;
-        const checkoutDetails = this.props.checkoutDetails;
-        const parking = this.props.checkoutDetails.parkingLot;
-        // const newParking = JSON.stringify(parking);
-        var x =JSON.parse(JSON.stringify(parking));
-        console.log(x.id);
-        // console.log(parking.name);
         return(
             <div>
                 {
