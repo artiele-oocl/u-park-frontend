@@ -4,3 +4,8 @@
   border: 0!important;
   background: #fff;
 }
+
+.chevron {
+    position: absolute;
+    right: 0px;
+}

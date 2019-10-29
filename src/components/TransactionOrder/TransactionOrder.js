@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import { Row, Col, Collapsible, CollapsibleItem } from 'react-materialize';
 import StarRatings from 'react-star-ratings';
-import './TransactionOrder.css'
+import './TransactionOrder.css';
+import chevrondown from "../../chevrondown.png";
 
 export default class TransactionOrder extends Component {
     render() {
         const { transactionOrder } = this.props;
-        const transactionSummary = <div>{transactionOrder.parkingLotName}<br /><span style={{ fontSize: '11px' }}>Total: {transactionOrder.totalFee}</span></div>;
+        const transactionSummary = <div>
+                        {transactionOrder.parkingLotName}<br />
+                        <span style={{ fontSize: '11px' }}>Total: {transactionOrder.totalFee}</span>
+                        <i class="chevron"><img style={{ width: '20px', height: '20px' }} src={chevrondown}></img></i>
+                    </div>;
         return (
             <div>
                 <Collapsible className="transaction-order-list">
