@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import FakeAuth from "../../FakeAuth";
-import Checkout from "./Checkout";
+import AfterCheckout from "./AfterCheckout";
 
 export default class CheckoutWrapper extends Component {
 
@@ -9,10 +9,14 @@ export default class CheckoutWrapper extends Component {
         this.props.getUserActiveTransaction(userInformation.id);
     }
 
+    rateAfterCheckout = (transactionId, rating) => {
+        this.props.addRating(transactionId, rating);
+    };
+
     render() {
         return (
             <div>
-                <Checkout checkOut={this.props.checkOut}/>
+                <AfterCheckout onRate={this.rateAfterCheckout}/>
             </div>
         );
     }

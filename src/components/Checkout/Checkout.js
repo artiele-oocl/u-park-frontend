@@ -2,6 +2,7 @@ import React from "react";
 import { Row, Col, Card, CardTitle } from 'react-materialize';
 import logo from "../../logo.png";
 import CheckoutDetails from "./CheckoutDetails";
+import StarRatings from "react-star-ratings";
 
 
 export default class Checkout extends React.Component {
