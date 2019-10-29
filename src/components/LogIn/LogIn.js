@@ -2,12 +2,20 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import logo from '../../logo.png'
 import {Button, TextInput} from 'react-materialize';
+import FakeAuth from "../../FakeAuth";
 
 export default class LogIn extends Component {
     state = {
         emailOrPhoneNumber: '',
         password: ''
     };
+
+    componentDidMount() {
+        let userInformation = FakeAuth.isAuthenticated();
+        if (userInformation.id !== '') {
+            window.location.href = '/parkinglotlist';
+        }
+    }
 
     onChangeEmailOrPhoneNumber = (event) => {
         this.setState({emailOrPhoneNumber: event.target.value});

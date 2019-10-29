@@ -34,7 +34,7 @@ const mapDispatchToProps = dispatch => ({
         payload: criteria
     }),
     setSelectedParkingLot: (parkingLotId, userId) => {
-        return ParkingLotResource.setSelectedParkingLot({parkingLotId : parkingLotId, userId: userId})
+        return ParkingLotResource.setSelectedParkingLot({parkingLotId: parkingLotId, userId: userId})
             .then(res => res.json())
             .then(res => {
                 dispatch({
