@@ -14,9 +14,8 @@ export default class Checkout extends React.Component {
                         <Card
                             header={<CardTitle />}
                             actions={<CheckoutDetails checkoutDetails={this.props.checkOut} />}
-                            className="blue-grey darken-1"
                         >
-                            <img src={logo} alt=""/>
+                            <img src={logo} alt="logo"/>
                         </Card>
                     </Col>
                 </Row>
