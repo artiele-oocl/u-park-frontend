@@ -4,9 +4,10 @@ import LogInContainer from './containers/LogInContainer'
 import './App.css'
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import ParkingLotListContainer from './containers/ParkingLotListContainer';
-import FakeAuth from "./FakeAuth";
+// import FakeAuth from "./FakeAuth";
 import Menu from './components/Menu/Menu';
 import UserProfileContainer from "./containers/UserProfileContainer";
+import WalletContainer from "./containers/WalletContainer";
 
 class App extends React.Component {
     
@@ -40,7 +41,7 @@ class App extends React.Component {
                         </Route>
 
                         <Route path="/wallet">
-                            <ParkingLotListContainer/>
+                            <WalletContainer/>
                             <Menu/>
                         </Route>
                         

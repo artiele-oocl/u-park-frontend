@@ -9,6 +9,11 @@ export default (state = initialState, {type, payload}) => {
                 ...state,
                 user: [...state.users, payload]
             };
+        case "TOP_UP_WALLET":
+            return {
+                ...state,
+                user: payload,
+            };
         default:
             return state;
     }
