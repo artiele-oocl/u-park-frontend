@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import FakeAuth from "../../FakeAuth";
-import {Button} from 'react-materialize';
+import WalletMoney from "./WalletMoney";
+import WalletTopUp from "./WalletTopUp";
 
 export class WalletWrapper extends Component {
 
@@ -8,14 +9,26 @@ export class WalletWrapper extends Component {
         id: FakeAuth.isAuthenticated().id,
         name: FakeAuth.isAuthenticated().name,
         email: FakeAuth.isAuthenticated().email,
-        phoneNumber: FakeAuth.isAuthenticated().phoneNumber
+        phoneNumber: FakeAuth.isAuthenticated().phoneNumber,
+        wallet: FakeAuth.isAuthenticated().wallet
+    };
+
+    constructor(props) {
+        super(props);
+        let userInfo = FakeAuth.isAuthenticated();
+        console.log(userInfo)
+    }
+
+    addMoneyToWallet = (topUpValue) => {
+        this.props.topUpWallet(this.state.id, topUpValue);
+        this.setState({wallet: parseInt(this.state.wallet) + parseInt(topUpValue)})
     };
 
     render() {
         return (
             <div>
-                <h1>sample 500Php</h1>
-                <Button>Top up</Button>
+                <WalletMoney walletAmount={this.state.wallet}/>
+                <WalletTopUp addTopUpValue={this.addMoneyToWallet}/>
             </div>
         )
     }

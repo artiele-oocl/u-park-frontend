@@ -12,6 +12,7 @@ const mapDispatchToProps = dispatch => ({
         return UserResource.topUpWallet({id : userId, wallet: amount})
             .then(res => res.json())
             .then(res => {
+                sessionStorage['u-park-user-information'] = JSON.stringify(res);
                 dispatch({
                     type: 'TOP_UP_WALLET',
                     payload: res
