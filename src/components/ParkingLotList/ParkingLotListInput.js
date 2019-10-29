@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Select, Row, Autocomplete} from 'react-materialize';
+import {Select, Row, Autocomplete, Badge, Icon} from 'react-materialize';
 import logo from "../../logo.png";
 import LocationResource from '../../api/LocationResource';
 
@@ -7,7 +7,8 @@ export default class ParkingLotListInput extends Component {
 
     state = {
         sortCriteria: 'Default',
-        locations: null
+        locations: null,
+        manualSearch: '',
     };
 
     componentDidMount() {
@@ -21,6 +22,7 @@ export default class ParkingLotListInput extends Component {
 
     onChangeManualLocation = (chosenLocation) => {
         this.props.onSetManualLocation(chosenLocation);
+        this.setState({manualSearch: chosenLocation})
     };
 
     getLocations = () => {
@@ -36,6 +38,7 @@ export default class ParkingLotListInput extends Component {
     clearInput = (event) => {
         if (event.target.value === '') {
             this.props.onSetManualLocation('');
+            this.setState({manualSearch: ''})
         }
     };
 
@@ -43,6 +46,7 @@ export default class ParkingLotListInput extends Component {
         if (!this.state.locations) {
             return <div/>
         }
+
         return (
 
             <div style={{marginLeft: '1rem', marginRight: '1rem'}}>
@@ -50,6 +54,7 @@ export default class ParkingLotListInput extends Component {
                 <Row>
                     <img style={{width: '120px', height: '70px'}} src={logo} alt='logo'/>
                 </Row>
+
                 <Autocomplete options={{data: this.state.locations, onAutocomplete: this.onChangeManualLocation}}
                               placeholder="Choose your location"
                               onChange={this.clearInput}/>
@@ -67,6 +72,13 @@ export default class ParkingLotListInput extends Component {
                         Rating
                     </option>
                 </Select>
+                {!this.state.manualSearch ? null :
+                    <div>
+                        <Badge style={{fontWeight: 'bold', fontSize: '12px'}} className="teal" caption="" newIcon>
+                            {this.state.manualSearch}
+                        </Badge>
+                    </div>
+                }
             </div>
         )
     }
