@@ -1,6 +1,6 @@
 
 const initialState = {
-    activeTransaction: {}
+    checkOut: {}
 };
 
 export default (state = initialState, {type, payload}) => {
@@ -8,9 +8,8 @@ export default (state = initialState, {type, payload}) => {
         case 'GET_ACTIVE_TRANSACTION':
             return {
                 ...state,
-                activeTransaction: payload
+                ...state.checkOut = payload
             }
-
         default:
             return state;
     }

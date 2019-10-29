@@ -2,13 +2,9 @@ import React, {Component} from 'react';
 import {Row, Col, Button} from 'react-materialize';
 import StarRatings from "react-star-ratings";
 import FakeAuth from "../../FakeAuth";
+import Checkout from "./Checkout";
 
 export default class CheckoutWrapper extends Component {
-
-    state = {
-        isGeolocationAvailable: false,
-        userInfo: ''
-    };
 
     componentDidMount() {
         let userInformation = FakeAuth.isAuthenticated();
@@ -19,7 +15,7 @@ export default class CheckoutWrapper extends Component {
     render() {
         return (
             <div>
-
+                <Checkout checkOut={this.props.checkOut}/>
             </div>
         );
     }

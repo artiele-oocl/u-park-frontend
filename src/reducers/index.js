@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
     registerResource: registerReducer,
     loginResource: loginReducer,
     parkingLotResource: parkingLotReducer,
-    transactionResource: checkoutReducer
+    checkoutResource: checkoutReducer
 
 });
 
