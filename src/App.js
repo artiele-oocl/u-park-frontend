@@ -9,13 +9,7 @@ import Menu from './components/Menu/Menu';
 import UserProfileContainer from "./containers/UserProfileContainer";
 
 class App extends React.Component {
-
-    componentDidMount() {
-        // This is for reset of session because there is still no logout
-        // FakeAuth.logMeOut();
-    }
-
-
+    
     render() {
         return (
             <div className="App">

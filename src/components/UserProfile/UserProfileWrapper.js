@@ -40,6 +40,11 @@ export class UserProfileWrapper extends Component {
         }
     };
 
+    onLogout = () => {
+        FakeAuth.logMeOut();
+        window.location.href = '/';
+    };
+
     isValid() {
         if (!new RegExp("[a-zA-Z0-9]{5}").test(this.state.name)) {
             M.toast({html: 'Invalid Name, must contain at least 5 characters'});
@@ -66,6 +71,7 @@ export class UserProfileWrapper extends Component {
                <TextInput onChange = {this.onEmailChange} value = {this.state.email}/>
                <TextInput onChange = {this.onPhoneNumberChange} value = {this.state.phoneNumber}/>
                <Button onClick = {this.onSave}>Save</Button>
+               <Button onClick = {this.onLogout}>Logout</Button>
            </div>
         )
     }
