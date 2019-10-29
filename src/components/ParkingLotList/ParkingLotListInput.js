@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Select, Row, Autocomplete, Badge, Icon} from 'react-materialize';
+import {Select, Row, Autocomplete, Badge} from 'react-materialize';
 import logo from "../../logo.png";
 import LocationResource from '../../api/LocationResource';
 
@@ -46,19 +46,16 @@ export default class ParkingLotListInput extends Component {
         if (!this.state.locations) {
             return <div/>
         }
-
         return (
-
             <div style={{marginLeft: '1rem', marginRight: '1rem'}}>
                 <br/>
                 <Row>
                     <img style={{width: '120px', height: '70px'}} src={logo} alt='logo'/>
                 </Row>
-
                 <Autocomplete options={{data: this.state.locations, onAutocomplete: this.onChangeManualLocation}}
-                              placeholder="Choose your location"
+                              title="Choose Location"
                               onChange={this.clearInput}/>
-                <Select value={this.state.sortCriteria} onChange={this.handleInputChange}>
+                <Select value={this.state.sortCriteria} label="Sort By" onChange={this.handleInputChange}>
                     <option value="Default" disabled>
                         Sort by...
                     </option>
@@ -75,7 +72,7 @@ export default class ParkingLotListInput extends Component {
                 {!this.state.manualSearch ? null :
                     <div>
                         <Badge style={{fontWeight: 'bold', fontSize: '12px'}} className="teal" caption="" newIcon>
-                            {this.state.manualSearch}
+                            Near - {this.state.manualSearch}
                         </Badge>
                     </div>
                 }
