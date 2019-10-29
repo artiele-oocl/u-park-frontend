@@ -21,6 +21,15 @@ export default class TransactionOrder extends Component {
         }
     }
 
+    parseDate = (date) => {
+        if (date === null) {
+            return null;
+        } else {
+            const dateOptions = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+            return new Date(date).toLocaleDateString('en-US', dateOptions);
+        }
+    }
+
     render() {
         const { transactionOrder } = this.props;
         const transactionSummary = <div>
@@ -35,11 +44,11 @@ export default class TransactionOrder extends Component {
                         <span style={{ fontSize: '12px' }}>
                             <Row>
                                 <Col>Check-in:</Col>
-                                <Col>{transactionOrder.checkIn}</Col>
+                                <Col>{this.parseDate(transactionOrder.checkIn)}</Col>
                             </Row>
                             <Row>
                                 <Col>Check-out:</Col>
-                                <Col>{transactionOrder.checkOut}</Col>
+                                <Col>{this.parseDate(transactionOrder.checkOut)}</Col>
                             </Row>
                             <Row>
                                 <Col>Your rating:</Col>
