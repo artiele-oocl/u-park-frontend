@@ -1,22 +1,35 @@
 import React from 'react'
-import logo from '../../logo.jpg'
+import logo from '../../logo.png'
 import { Row, Col, CollapsibleItem, Collapsible } from 'react-materialize';
 import ArrowDropDownOutlinedIcon from '@material-ui/icons/ArrowDropDownOutlined';
 import './Notification.css'
+import NotificationsIcon from '@material-ui/icons/Notifications';
+
+
 
 export default function Notification() {
     
         return (
-            <div>
+            <div style = {{marginLeft: '15px', marginRight: '15px', marginTop:'20px'}}>
                 <Row>
-                    <Col style={{ float: 'left', textAlign: 'left' }}><img style={{ padding: '5px', width: '100px', align: 'left' }} src={logo} alt='logo' />
+                    <Col style={{float: 'left'}}>
+                        <img style={{ width: '100px'}}
+                             src={logo} alt='logo' />
+                    </Col>
+                    <Col style={{float: 'right'}}>
+                        <NotificationsIcon style={{fontSize: '5rem', color: 'grey'}}/>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col style={{paddingLeft: '0px'}}>
+                        <p style={{fontSize: '1.5rem', fontWeight: 'bold', marginTop: '8px', position:'center'}}>
+                            Notifications
+                        </p>
                     </Col>
                 </Row>
 
-                <div style = {{marginLeft: '15px', marginRight: '15px'}}>
-                    <Row>
-                        <Col>Notifications</Col>
-                    </Row>
+                <div >
+
                     
                     <Row>
                         <Collapsible className = "colapse">
