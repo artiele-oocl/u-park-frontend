@@ -8,7 +8,9 @@ export default class TransactionOrder extends Component {
             <div>
                 <Row>
                     <Col style={{float: 'left', textAlign: 'left'}}>
-                        {transactionOrder.parkingLotId}
+                        {transactionOrder.parkingLotName}<br/>
+                        
+                        <span style={{fontSize: '11px'}}>Total: {transactionOrder.totalFee}</span>
                         {/* {parkingLot.name}
                         <br/>
                         <span style={{fontSize: '11px'}}>{parseFloat(parkingLot.distance).toFixed(2)} km</span>
