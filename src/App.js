@@ -4,6 +4,7 @@ import LogInContainer from './containers/LogInContainer'
 import './App.css'
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import ParkingLotListContainer from './containers/ParkingLotListContainer';
+import TransactionOrderContainer from './containers/TransactionOrderContainer';
 import FakeAuth from "./FakeAuth";
 import Menu from './components/Menu/Menu';
 
@@ -35,7 +36,7 @@ class App extends React.Component {
                         </Route>
 
                         <Route path="/transactions">
-                            <ParkingLotListContainer/>
+                            <TransactionOrderContainer/>
                             <Menu/>
                         </Route>
 
