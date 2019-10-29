@@ -1,5 +1,5 @@
 import {connect} from 'react-redux'
-import UserProfileWrapper from "../components/UserProfile/UserProfileWrapper";
+import UserProfileWrapper from "../components/User/UserProfileWrapper";
 import UserResource from "../api/UserResource";
 import FakeAuth from "../FakeAuth";
 
