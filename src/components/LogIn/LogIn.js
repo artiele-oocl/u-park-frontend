@@ -13,7 +13,7 @@ export default class LogIn extends Component {
     componentDidMount() {
         let userInformation = FakeAuth.isAuthenticated();
         if (userInformation.id !== '') {
-            window.location.href = '/parkinglotlist';
+            // window.location.href = '/parkinglotlist';
         }
     }
 

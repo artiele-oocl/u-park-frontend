@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import {Row, Col, Button} from 'react-materialize';
 import StarRatings from "react-star-ratings";
-import FakeAuth from "../../FakeAuth";
 import {Link} from "react-router-dom";
-
 
 export default class ParkingLotModal extends Component {
     state = {

@@ -12,10 +12,9 @@ export class ParkingLotListWrapper extends Component {
         userInfo: ''
     };
 
-
     componentDidMount() {
         let userInformation = FakeAuth.isAuthenticated();
-        this.setState({userInfo: userInformation.id})
+        this.setState({userInfo: userInformation.id});
 
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(this.setGeoLocation);
@@ -43,29 +42,29 @@ export class ParkingLotListWrapper extends Component {
 
     setSelectedParkingLot = (parkingLotId) => {
         this.props.setSelectedParkingLot(parkingLotId, this.state.userInfo);
-    }
+    };
 
     setManualLocation = (manualLocationName) => {
-        if(manualLocationName === undefined || manualLocationName === '') {
+        if (manualLocationName === undefined || manualLocationName === '') {
             this.componentDidMount();
         } else {
             LocationResource.findByName(manualLocationName)
-            .then(res => res.json())
-            .then(res => {
-                const latitude = res.latitude;
-                const longitude = res.longitude;
-                this.props.getNearestParkingLotsFromLocation(latitude, longitude);
-                this.props.filterParkingLotsByCriteria(this.props.criteria);
-            });
+                .then(res => res.json())
+                .then(res => {
+                    const latitude = res.latitude;
+                    const longitude = res.longitude;
+                    this.props.getNearestParkingLotsFromLocation(latitude, longitude);
+                    this.props.filterParkingLotsByCriteria(this.props.criteria);
+                });
         }
-    }
+    };
 
     render() {
         if (!this.state.isGeolocationAvailable) {
             return (
                 <div>
-                    <img src={gpsNotAvailable} style ={{marginTop: '2rem'}}/>
-                    <br></br>
+                    <img src={gpsNotAvailable} style={{marginTop: '2rem'}} alt='altText'/>
+                    <br/>
                     <p>
                         PLEASE TURN ON YOUR GPS
                     </p>
@@ -74,12 +73,11 @@ export class ParkingLotListWrapper extends Component {
             )
         }
 
-
-
         return (
-            <div style={{display: 'flex', minHeight: '92vh', flexDirection: 'column'}} >
+            <div style={{display: 'flex', minHeight: '92vh', flexDirection: 'column'}}>
                 <ParkingLotListInput onSetFilter={this.setFilter} onSetManualLocation={this.setManualLocation}/>
-                <ParkingLotList parkingLotList={this.props.parkingLots} selectedParkingLot={this.setSelectedParkingLot}/>
+                <ParkingLotList parkingLotList={this.props.parkingLots}
+                                selectedParkingLot={this.setSelectedParkingLot}/>
             </div>
         )
     }

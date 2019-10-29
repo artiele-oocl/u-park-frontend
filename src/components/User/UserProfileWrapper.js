@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import FakeAuth from "../../FakeAuth";
 import {Button, TextInput} from 'react-materialize';
-// import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import * as M from "materialize-css";
 
@@ -13,11 +12,6 @@ export class UserProfileWrapper extends Component {
         email: FakeAuth.isAuthenticated().email,
         phoneNumber: FakeAuth.isAuthenticated().phoneNumber
     };
-
-    constructor(props) {
-        super(props);
-        let userInfo = FakeAuth.isAuthenticated();
-    }
 
     onNameChange = (e) => {
         this.setState({name: e.target.value});
@@ -38,7 +32,7 @@ export class UserProfileWrapper extends Component {
                 email: this.state.email,
                 phoneNumber: this.state.phoneNumber
             };
-            this.props.patchUserProfile(this.state.id, userInfo)
+            this.props.patchUserProfile(this.state.id, userInfo);
             M.toast({html: 'Successfully updated the profile'});
         }
     };
@@ -69,21 +63,23 @@ export class UserProfileWrapper extends Component {
 
     render() {
         return (
-           <div>
+            <div>
 
-               <div style={{backgroundColor:'#26A69A', height: '55vh'}}>
-                   <Button flat waves="light" style = {{ float:'right', marginTop: '3%', color:'white' }}onClick = {this.onSave}>Save</Button>
-                   <AccountCircleIcon  style={{fontSize: '25rem', color: '#fff'}}/>
-               </div>
+                <div style={{backgroundColor: '#26A69A', height: '55vh'}}>
+                    <Button flat waves="light" style={{float: 'right', marginTop: '3%', color: 'white'}}
+                            onClick={this.onSave}>Save</Button>
+                    <AccountCircleIcon style={{fontSize: '25rem', color: '#fff'}}/>
+                </div>
 
-               <div style = {{padding:'2rem'}}>
-                   <TextInput onChange = {this.onNameChange} label="Name" value = {this.state.name}/>
-                   <TextInput onChange = {this.onEmailChange} label="Email" value = {this.state.email}/>
-                   <TextInput onChange = {this.onPhoneNumberChange} label="Mobile Number" value = {this.state.phoneNumber}/>
-               </div>
+                <div style={{padding: '2rem'}}>
+                    <TextInput onChange={this.onNameChange} label="Name" value={this.state.name}/>
+                    <TextInput onChange={this.onEmailChange} label="Email" value={this.state.email}/>
+                    <TextInput onChange={this.onPhoneNumberChange} label="Mobile Number"
+                               value={this.state.phoneNumber}/>
+                </div>
 
-               <Button style = {{width: '80%'}} onClick = {this.onLogout}>Logout</Button>
-           </div>
+                <Button style={{width: '80%'}} onClick={this.onLogout}>Logout</Button>
+            </div>
         )
     }
 }

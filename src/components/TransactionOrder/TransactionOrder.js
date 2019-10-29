@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Row, Col, Collapsible, CollapsibleItem } from 'react-materialize';
+import React, {Component} from 'react';
+import {Row, Col, Collapsible, CollapsibleItem} from 'react-materialize';
 import StarRatings from 'react-star-ratings';
 import './TransactionOrder.css';
 import chevrondown from "../../chevrondown.png";
@@ -19,29 +19,36 @@ export default class TransactionOrder extends Component {
         } else {
             return <div>Not rated</div>
         }
-    }
+    };
 
     parseDate = (date) => {
         if (date === null) {
             return null;
         } else {
-            const dateOptions = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+            const dateOptions = {
+                weekday: 'short',
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric'
+            };
             return new Date(date).toLocaleDateString('en-US', dateOptions);
         }
-    }
+    };
 
     render() {
-        const { transactionOrder } = this.props;
+        const {transactionOrder} = this.props;
         const transactionSummary = <div>
-            {transactionOrder.parkingLotName}<br />
-            <span style={{ fontSize: '11px' }}>Total: {transactionOrder.totalFee}</span>
-            <i class="chevron"><img style={{ width: '20px', height: '20px' }} src={chevrondown}></img></i>
+            {transactionOrder.parkingLotName}<br/>
+            <span style={{fontSize: '11px'}}>Total: {transactionOrder.totalFee}</span>
+            <i className="chevron"><img style={{width: '20px', height: '20px'}} src={chevrondown} alt='altText'/></i>
         </div>;
         return (
             <div>
                 <Collapsible className="transaction-order-list">
-                    <CollapsibleItem header={transactionSummary} >
-                        <span style={{ fontSize: '12px' }}>
+                    <CollapsibleItem header={transactionSummary}>
+                        <span style={{fontSize: '12px'}}>
                             <Row>
                                 <Col>Check-in:</Col>
                                 <Col>{this.parseDate(transactionOrder.checkIn)}</Col>
