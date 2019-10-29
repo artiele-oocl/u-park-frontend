@@ -43,7 +43,7 @@ export default class ParkingLotListInput extends Component {
             return <div />
         }
         return (
-            <div className="todo-input">
+            <div>
                 <Autocomplete options={{data:this.state.locations, onAutocomplete:this.onChangeManualLocation}} placeholder="Choose your location" onChange={this.clearInput}/>
                 <Select value={this.state.sortCriteria} onChange={this.handleInputChange}>
                     <option value="Default" disabled>
