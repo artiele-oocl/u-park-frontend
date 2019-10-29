@@ -25,7 +25,7 @@ export class TransactionOrderWrapper extends Component {
                 <Row>
                     <img style={{ width: '120px', height: '70px' }} src={logo} alt='logo' />
                 </Row>
-                My Previous Transactions
+                <span style={{ fontSize: '16px' }}>My Previous Transactions</span>
                 <TransactionOrderList transactionOrderList={this.props.transactionOrders} />
             </div>
         )
