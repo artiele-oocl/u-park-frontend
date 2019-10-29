@@ -4,17 +4,11 @@ import LogInContainer from './containers/LogInContainer'
 import './App.css'
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import ParkingLotListContainer from './containers/ParkingLotListContainer';
-import FakeAuth from "./FakeAuth";
 import Menu from './components/Menu/Menu';
 import CheckoutContainer from "./containers/CheckoutContainer";
+import UserProfileContainer from "./containers/UserProfileContainer";
 
 class App extends React.Component {
-
-    componentDidMount() {
-        // This is for reset of session because there is still no logout
-        // FakeAuth.logMeOut();
-    }
-
 
     render() {
         return (
@@ -23,7 +17,7 @@ class App extends React.Component {
                     <Switch>
 
                         <Route exact path="/">
-                            <LogInContainer />
+                            <LogInContainer/>
                         </Route>
 
                         <Route path="/register">
@@ -31,7 +25,7 @@ class App extends React.Component {
                         </Route>
 
                         <Route path="/parkinglotlist">
-                            <ParkingLotListContainer />
+                            <ParkingLotListContainer/>
                             <Menu/>
                         </Route>
 
@@ -49,14 +43,14 @@ class App extends React.Component {
                             <ParkingLotListContainer/>
                             <Menu/>
                         </Route>
-                        
+
                         <Route path="/profile">
-                            <ParkingLotListContainer/>
+                            <UserProfileContainer/>
                             <Menu/>
                         </Route>
 
                         <Route path="/checkout">
-                            <CheckoutContainer />
+                            <CheckoutContainer/>
                             <Menu/>
                         </Route>
 

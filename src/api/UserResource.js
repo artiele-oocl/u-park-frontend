@@ -16,5 +16,12 @@ export default {
             headers: new Headers({'Content-Type': 'application/json'}),
             mode: 'cors',
             body: JSON.stringify(userInput)
+        }),
+    patchUserProfile: (id, userInfo) => fetch(
+        "http://localhost:8080/api/users/" + id, {
+            method: 'PATCH',
+            headers: new Headers({'Content-Type': 'application/json'}),
+            mode: 'cors',
+            body: JSON.stringify(userInfo)
         })
 }
