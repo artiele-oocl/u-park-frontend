@@ -7,7 +7,6 @@ import ParkingLotModal from "./ParkingLotModal";
 export class ParkingLotList extends Component {
 
     setParkingLotDetail = (parkingLotDetails) => {
-        console.log("ASDBSFNB" + parkingLotDetails);
         this.props.selectedParkingLot(parkingLotDetails);
     }
 

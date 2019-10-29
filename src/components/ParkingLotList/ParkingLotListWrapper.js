@@ -8,13 +8,14 @@ import FakeAuth from "../../FakeAuth";
 export class ParkingLotListWrapper extends Component {
 
     state = {
-        isGeolocationAvailable: false
+        isGeolocationAvailable: false,
+        userInfo: ''
     };
 
 
     componentDidMount() {
         let userInformation = FakeAuth.isAuthenticated();
-        console.log(userInformation);
+        this.setState({userInfo: userInformation.id})
 
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(this.setGeoLocation);
@@ -41,8 +42,8 @@ export class ParkingLotListWrapper extends Component {
         this.forceUpdate();
     };
 
-    setSelectedParkingLot = (parkingLot) => {
-        this.props.setSelectedParkingLot(parkingLot);
+    setSelectedParkingLot = (parkingLotId) => {
+        this.props.setSelectedParkingLot(parkingLotId, this.state.userInfo);
     }
 
     setManualLocation = (manualLocationName) => {
