@@ -110,7 +110,7 @@ export class RegisterWrapper extends Component {
                     <img style={{padding: '10px', width: '250px'}} src={logo} alt='logo'/>
                 </div>
                 <form onSubmit={this.onSubmit} style={{marginLeft: '2rem', marginRight: '2rem'}}>
-                    <TextInput icon="email" label="Email/Phone No."
+                    <TextInput icon="email" label="Email"
                                onChange={this.onChangeEmail}
                                email validate
                                error="INVALID EMAIL" required/>
