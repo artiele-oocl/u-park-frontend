@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import ParkingLotListContainer from './containers/ParkingLotListContainer';
 import FakeAuth from "./FakeAuth";
 import Menu from './components/Menu/Menu';
+import CheckoutWrapper from "./components/Checkout/CheckoutWrapper";
 
 class App extends React.Component {
 
@@ -51,6 +52,11 @@ class App extends React.Component {
                         
                         <Route path="/profile">
                             <ParkingLotListContainer/>
+                            <Menu/>
+                        </Route>
+
+                        <Route path="/checkout">
+                            <CheckoutWrapper />
                             <Menu/>
                         </Route>
 
