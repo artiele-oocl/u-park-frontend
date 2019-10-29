@@ -39,7 +39,6 @@ export class ParkingLotListWrapper extends Component {
         } else {
             this.props.filterParkingLotsByCriteria('Default');
         }
-        this.forceUpdate();
     };
 
     setSelectedParkingLot = (parkingLotId) => {
@@ -53,14 +52,10 @@ export class ParkingLotListWrapper extends Component {
             LocationResource.findByName(manualLocationName)
             .then(res => res.json())
             .then(res => {
-                if (res.length > 0) {
-                    res.forEach(loc => {
-                        const latitude = loc.latitude;
-                        const longitude = loc.longitude;
-                        this.props.getNearestParkingLotsFromLocation(latitude, longitude);
-                        this.props.filterParkingLotsByCriteria(this.props.criteria);
-                    })
-                }
+                const latitude = res.latitude;
+                const longitude = res.longitude;
+                this.props.getNearestParkingLotsFromLocation(latitude, longitude);
+                this.props.filterParkingLotsByCriteria(this.props.criteria);
             });
         }
     }
