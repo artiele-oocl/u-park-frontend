@@ -9,9 +9,9 @@ import Menu from './components/Menu/Menu';
 import CheckoutContainer from "./containers/CheckoutContainer";
 import UserProfileContainer from "./containers/UserProfileContainer";
 import WalletContainer from "./containers/WalletContainer";
+import Notification from './components/Notification/Notification';
 
 class App extends React.Component {
-
     render() {
         return (
             <div className="App">
@@ -56,6 +56,9 @@ class App extends React.Component {
                             <Menu/>
                         </Route>
 
+                        <Route path="/notifications">
+                            <Notification/>
+                        </Route>
                     </Switch>
                 </Router>
             </div>

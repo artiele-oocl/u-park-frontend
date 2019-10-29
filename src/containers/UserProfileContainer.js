@@ -1,7 +1,6 @@
 import {connect} from 'react-redux'
-import UserProfileWrapper from "../components/UserProfile/UserProfileWrapper";
 import UserResource from "../api/UserResource";
-import FakeAuth from "../FakeAuth";
+import {UserProfileWrapper} from "../components/User/UserProfileWrapper";
 
 const mapStateToProps = state => ({
     user: state.profileResource.user
