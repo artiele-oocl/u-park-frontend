@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import FakeAuth from "../../FakeAuth";
-import {Button, TextInput} from 'react-materialize';
-import * as M from "materialize-css";
 import WalletMoney from "./WalletMoney";
 import WalletTopUp from "./WalletTopUp";
 
@@ -21,14 +19,16 @@ export class WalletWrapper extends Component {
         console.log(userInfo)
     }
 
-    walletBalance = () => {
-        return this.state.wallet;
+    addMoneyToWallet = (topUpValue) => {
+        this.props.topUpWallet(this.state.id, topUpValue);
+        this.setState({wallet:parseInt(this.state.wallet) + parseInt(topUpValue)})
     }
+
     render() {
         return (
             <div>
                 <WalletMoney walletAmount={this.state.wallet}/>
-                <WalletTopUp />
+                <WalletTopUp addTopUpValue={this.addMoneyToWallet}/>
             </div>
         )
     }

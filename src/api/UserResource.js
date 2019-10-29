@@ -23,5 +23,12 @@ export default {
             headers: new Headers({'Content-Type': 'application/json'}),
             mode: 'cors',
             body: JSON.stringify(userInfo)
+        }),
+    topUpWallet: (userInfo) => fetch(
+        "http://localhost:8080/api/users/wallet", {
+            method: 'PATCH',
+            headers: new Headers({'Content-Type': 'application/json'}),
+            mode: 'cors',
+            body: JSON.stringify(userInfo)
         })
 }

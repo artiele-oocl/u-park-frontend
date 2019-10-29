@@ -1,10 +1,16 @@
-import React, { Component } from 'react'
-import {Select, Row, Col, Autocomplete, Button, Modal, TextInput} from 'react-materialize';
+import React, {Component} from 'react'
+import {Button, Modal, TextInput} from 'react-materialize';
+
 export default class WalletTopUp extends Component {
 
     state = {
         topUpvalue: ''
     };
+
+
+    addTopUpValue = () => {
+        this.props.addTopUpValue(this.state.topUpvalue);
+    }
 
     onTopUpChange = (e) => {
         this.setState({topUpvalue: e.target.value});
@@ -15,7 +21,7 @@ export default class WalletTopUp extends Component {
                 <Modal  header="Top Up" trigger={<div style={{padding:"10vh"}}><Button>Top Up</Button></div>}>
                     <p>
                         <TextInput onChange={this.onTopUpChange} value={this.state.topUpvalue}/>
-                        <Button>Save</Button>
+                        <Button onClick={this.addTopUpValue} >Save</Button>
                     </p>
                 </Modal>
             </div>
