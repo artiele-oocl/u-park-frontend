@@ -10,27 +10,24 @@ export default class ParkingLotModal extends Component {
         let userInformation = FakeAuth.isAuthenticated();
     }
 
-    state = {
-        parkingLot: this.props.parkingLot
-    }
-
     selectedParkingLot = () =>{
-        this.props.selectParkingLot(this.state.parkingLot.id);
+        this.props.selectParkingLot(this.props.parkingLot.id);
     }
+    
     render() {
         return (
             <div>
                 <Row>
                     <Col style={{float: 'left', textAlign: 'left'}}>
-                        {this.state.parkingLot.name}
+                        {this.props.parkingLot.name}
                     </Col>
                     <Col style={{float: 'right', fontSize: '11px'}}>
-                        <span style={{fontSize: '11px'}}>{parseFloat(this.state.parkingLot.distance).toFixed(2)} km</span>
+                        <span style={{fontSize: '11px'}}>{parseFloat(this.props.parkingLot.distance).toFixed(2)} km</span>
                     </Col>
                     <br/>
                     <Col style={{float: 'right', fontSize: '11px'}}>
                         <StarRatings
-                            rating={this.state.parkingLot.starRating}
+                            rating={this.props.parkingLot.starRating}
                             starRatedColor="orange"
                             numberOfStars={5}
                             starDimension="12px"
@@ -44,7 +41,7 @@ export default class ParkingLotModal extends Component {
                     </Col>
                     <Col m={6} s={12}>
 
-                        <Button style={{marginRight: '5px', marginTop: '5px', width: '100%'}}  onClick={()=> window.open("https://waze.com/ul?q="+this.state.parkingLot.name+", "+this.state.parkingLot.address)}> Open in Waze </Button>
+                        <Button style={{marginRight: '5px', marginTop: '5px', width: '100%'}}  onClick={()=> window.open("https://waze.com/ul?q="+this.props.parkingLot.name+", "+this.props.parkingLot.address)}> Open in Waze </Button>
 
                     </Col>
                 </Row>
