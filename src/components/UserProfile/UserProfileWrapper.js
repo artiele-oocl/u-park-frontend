@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import FakeAuth from "../../FakeAuth";
 import {Button, TextInput} from 'react-materialize';
+import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import * as M from "materialize-css";
 
 export class UserProfileWrapper extends Component {
@@ -37,6 +38,7 @@ export class UserProfileWrapper extends Component {
                 phoneNumber: this.state.phoneNumber
             };
             this.props.patchUserProfile(this.state.id, userInfo)
+            M.toast({html: 'Successfully updated the profile'});
         }
     };
 
@@ -60,18 +62,26 @@ export class UserProfileWrapper extends Component {
             M.toast({html: 'Invalid Number, must be 11-digit number'});
             return false
         }
+
         return true;
     }
 
     render() {
         return (
            <div>
-               <h1>User Profile</h1>
-               <TextInput onChange = {this.onNameChange} value = {this.state.name}/>
-               <TextInput onChange = {this.onEmailChange} value = {this.state.email}/>
-               <TextInput onChange = {this.onPhoneNumberChange} value = {this.state.phoneNumber}/>
-               <Button onClick = {this.onSave}>Save</Button>
-               <Button onClick = {this.onLogout}>Logout</Button>
+
+               <div style={{backgroundColor:'#26A69A', height: '55vh'}}>
+                   <Button flat waves="light" style = {{ float:'right', marginTop: '3%', color:'white' }}onClick = {this.onSave}>Save</Button>
+                   <AccountCircleOutlinedIcon  style={{fontSize: '25rem', color: '#fff'}}/>
+               </div>
+
+               <div style = {{padding:'2rem'}}>
+                   <TextInput onChange = {this.onNameChange} label="Name" value = {this.state.name}/>
+                   <TextInput onChange = {this.onEmailChange} label="Email" value = {this.state.email}/>
+                   <TextInput onChange = {this.onPhoneNumberChange} label="Mobile Number" value = {this.state.phoneNumber}/>
+               </div>
+
+               <Button style = {{width: '80%'}} onClick = {this.onLogout}>Logout</Button>
            </div>
         )
     }
