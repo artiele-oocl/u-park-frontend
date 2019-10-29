@@ -8,6 +8,7 @@ import TransactionOrderContainer from './containers/TransactionOrderContainer';
 import Menu from './components/Menu/Menu';
 import CheckoutContainer from "./containers/CheckoutContainer";
 import UserProfileContainer from "./containers/UserProfileContainer";
+import WalletContainer from "./containers/WalletContainer";
 
 class App extends React.Component {
 
@@ -41,7 +42,7 @@ class App extends React.Component {
                         </Route>
 
                         <Route path="/wallet">
-                            <ParkingLotListContainer/>
+                            <WalletContainer/>
                             <Menu/>
                         </Route>
 
