@@ -6,7 +6,7 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import ParkingLotListContainer from './containers/ParkingLotListContainer';
 import FakeAuth from "./FakeAuth";
 import Menu from './components/Menu/Menu';
-import CheckoutWrapper from "./components/Checkout/CheckoutWrapper";
+import CheckoutContainer from "./containers/CheckoutContainer";
 
 class App extends React.Component {
 
@@ -56,7 +56,7 @@ class App extends React.Component {
                         </Route>
 
                         <Route path="/checkout">
-                            <CheckoutWrapper />
+                            <CheckoutContainer />
                             <Menu/>
                         </Route>
 
