@@ -6,6 +6,9 @@ export default class CheckoutWrapper extends Component {
 
     componentDidMount() {
         let userInformation = FakeAuth.isAuthenticated();
+        if (!userInformation) {
+            window.location.href = '/';
+        }
         this.props.getUserActiveTransaction(userInformation.id);
     }
 

@@ -14,12 +14,18 @@ export class ParkingLotListWrapper extends Component {
 
     componentDidMount() {
         let userInformation = FakeAuth.isAuthenticated();
+        if (!userInformation) {
+            window.location.href = '/';
+        }
         this.setState({userInfo: userInformation.id});
+        this.checkNavigator();
+    }
 
+    checkNavigator = () => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(this.setGeoLocation);
         }
-    }
+    };
 
     setGeoLocation = (position) => {
         this.setState({isGeolocationAvailable: true});

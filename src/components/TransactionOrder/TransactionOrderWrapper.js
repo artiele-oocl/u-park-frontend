@@ -12,6 +12,9 @@ export class TransactionOrderWrapper extends Component {
 
     componentDidMount() {
         let userInformation = FakeAuth.isAuthenticated();
+        if (!userInformation) {
+            window.location.href = '/';
+        }
         this.setState({userInfo: userInformation.id});
         this.props.getTransactionHistoryOfUser(userInformation.id);
     }
