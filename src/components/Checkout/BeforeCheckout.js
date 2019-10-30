@@ -3,6 +3,10 @@ import { Row, Button } from 'react-materialize';
 
 export default class BeforeCheckout extends React.Component {
 
+    doCheckOut = () => {
+        this.props.checkOut();
+    }
+
     render() {
         const { parkingLot, transactionOrder } = this.props.checkoutDetails;
         if (parkingLot != null && transactionOrder != null) {
@@ -28,7 +32,9 @@ export default class BeforeCheckout extends React.Component {
                         </Row>
                     </Row>
                     <Row style={{ margin: '0', backgroundColor: 'white', padding: '10px', textAlign: 'center', marginTop: '20%', marginBottom: '27%' }}>
-                        <Button large style={{ fontSize: '2rem', width: '100%', textTransform: 'capitalize', backgroundColor: '#195856d4'}}>Check Out</Button>
+                        <Button large style={{ fontSize: '2rem', width: '100%', textTransform: 'capitalize', backgroundColor: '#195856d4'}}
+                        onClick = {this.doCheckOut}
+                        >Check Out</Button>
                     </Row>
                 </Row>
             )

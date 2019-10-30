@@ -4,6 +4,14 @@ import StarRatings from 'react-star-ratings';
 import BeforeCheckout from "./BeforeCheckout";
 
 export default class CheckoutDetails extends React.Component {
+
+    doCheckout = () => {
+        this.props.checkOut()
+    }
+
+    rateAfterCheckout = (transactionId, rating) => {
+        this.props.addRating(transactionId, rating);
+    };
     
     render() {
         const {parkingLot, transactionOrder} = this.props.checkoutDetails;
@@ -13,12 +21,11 @@ export default class CheckoutDetails extends React.Component {
                     <Row style={{margin: '0'}} className="white-text">
                         <Col s={6}>
                             <p>{parkingLot.name}</p>
-                        </Col>
-                        <Col s={6}>
-                            <p style={{ marginBottom: '0' }}>
-                                idontknow distance? km
-                            </p>
-                            <p style={{marginTop: '0'}}>
+
+                            {/*<p style={{ marginBottom: '0' }}>*/}
+                            {/*    idontknow distance? km*/}
+                            {/*</p>*/}
+                            <p>
                                 <StarRatings
                                     rating={parkingLot.starRating}
                                     starRatedColor="orange"
@@ -30,7 +37,10 @@ export default class CheckoutDetails extends React.Component {
                             </p>
                         </Col>
                     </Row>
-                    <BeforeCheckout checkoutDetails={this.props.checkoutDetails}/>
+                    <BeforeCheckout checkoutDetails={this.props.checkoutDetails}
+                    checkOut={this.doCheckout}/>
+
+                    {/*<AfterCheckout onRate={this.rateAfterCheckout}/>*/}
                 </div>
             )
         } else {
