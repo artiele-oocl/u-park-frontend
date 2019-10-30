@@ -37,10 +37,10 @@ export default class CheckoutDetails extends React.Component {
                         </Col>
                     </Row>
                     
-                    {/* <BeforeCheckout
+                    <BeforeCheckout
                         checkoutDetails={this.props.checkoutDetails}
                         checkOut={this.doCheckout}
-                    /> */}
+                    />
 
                     <AfterCheckout
                         onRate={this.rateAfterCheckout }
