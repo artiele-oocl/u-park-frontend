@@ -14,6 +14,11 @@ export default (state = initialState, {type, payload}) => {
                 ...state,
                 user: payload,
             };
+        case "GET_USER_INFORMATION":
+            return {
+                ...state,
+                user: payload
+            }
         default:
             return state;
     }

@@ -17,6 +17,16 @@ const mapDispatchToProps = dispatch => ({
                     payload: res
                 })
             })
+    },
+    getUserInformation: (userId) => {
+        return UserResource.getUserById(userId)
+            .then(res => res.json())
+            .then(res => {
+                dispatch({
+                    type: 'GET_USER_INFORMATION',
+                    payload: res
+                })
+            })
     }
 });
 

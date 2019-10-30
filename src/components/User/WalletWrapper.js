@@ -5,29 +5,19 @@ import WalletTopUp from "./WalletTopUp";
 
 export class WalletWrapper extends Component {
 
-    state = {
-        id: FakeAuth.isAuthenticated().id,
-        name: FakeAuth.isAuthenticated().name,
-        email: FakeAuth.isAuthenticated().email,
-        phoneNumber: FakeAuth.isAuthenticated().phoneNumber,
-        wallet: FakeAuth.isAuthenticated().wallet
-    };
-
-    constructor(props) {
-        super(props);
-        let userInfo = FakeAuth.isAuthenticated();
-        console.log(userInfo)
+    componentDidMount() {
+        this.props.getUserInformation(FakeAuth.isAuthenticated().id);
     }
 
     addMoneyToWallet = (topUpValue) => {
-        this.props.topUpWallet(this.state.id, topUpValue);
-        this.setState({wallet: parseInt(this.state.wallet) + parseInt(topUpValue)})
+        this.props.topUpWallet(this.props.user.id, topUpValue);
+        this.setState({wallet: parseInt(this.props.user.wallet) + parseInt(topUpValue)})
     };
 
     render() {
         return (
             <div>
-                <WalletMoney walletAmount={this.state.wallet}/>
+                <WalletMoney walletAmount={this.props.user.wallet}/>
                 <WalletTopUp addTopUpValue={this.addMoneyToWallet}/>
             </div>
         )

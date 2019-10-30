@@ -30,5 +30,9 @@ export default {
             headers: new Headers({'Content-Type': 'application/json'}),
             mode: 'cors',
             body: JSON.stringify(userInfo)
-        })
+        }),
+    getUserById: (id) => fetch(
+        "http://localhost:8080/api/users/" + id,
+        {mode: 'cors'}
+    )    
 }
