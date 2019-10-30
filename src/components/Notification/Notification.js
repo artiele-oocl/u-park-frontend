@@ -11,6 +11,7 @@ export default function Notification() {
     
         return (
             <div style = {{marginLeft: '15px', marginRight: '15px', marginTop:'20px'}}>
+                <br/>
                 <Row>
                     <Col style={{float: 'left'}}>
                         <img style={{ width: '100px'}}
