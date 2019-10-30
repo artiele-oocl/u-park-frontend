@@ -63,17 +63,14 @@ export class UserProfileWrapper extends Component {
             return false
         }
 
-        const filteredCurrent = this.props.users.filter(user =>
-            user.email !== this.state.email || user.phoneNumber !== this.state.phoneNumber
-        );
+        const removeSelf = this.props.users.filter(user => user.id !== this.state.id);
 
-        const isExist = filteredCurrent.some(user =>
-            user.email === this.state.email || user.phoneNumber === this.state.phoneNumber
-        );
+        const isEmailCheck = removeSelf.some(user => user.email == this.state.email);
+        const isPhoneNumberCheck = removeSelf.some(user => user.phoneNumber == this.state.phoneNumber);
 
-        if (isExist) {
-            M.toast({html: 'Email or phone number already exist'});
-            return false
+        if (isEmailCheck || isPhoneNumberCheck) {
+            M.toast({html: 'Email or Phone number already exist'});
+            return false;
         }
 
         return true;
