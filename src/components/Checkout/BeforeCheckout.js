@@ -2,14 +2,6 @@ import React from "react";
 import { Row, Button } from 'react-materialize';
 
 export default class BeforeCheckout extends React.Component {
-    state = {
-        name: 'Integrated Rentals, Inc.',
-        address: 'Sunrise Drive Cor Edsa Extension Moa Complex, Pasay, 1300 Metro Manila',
-        starRating: 3.3,
-        rate: '30',
-        checkIn: '2019-10-29T19:43:23',
-        distance: 0.4
-    }
 
     render() {
         const { parkingLot, transactionOrder } = this.props.checkoutDetails;
@@ -23,7 +15,7 @@ export default class BeforeCheckout extends React.Component {
                                 Hourly rate
                             </span>
                             <span style={{ float: 'right' }}>
-                                ₱ {this.state.rate}.00
+                                ₱ {parkingLot.rate}.00
                             </span>
                         </Row>
                         <Row style={{ paddingBottom: '10px', paddingLeft: '10px', paddingRight: '10px', marginBottom: '30px', marginLeft: '0px', marginRight: '0px', backgroundColor: 'white' }}>
@@ -31,7 +23,7 @@ export default class BeforeCheckout extends React.Component {
                                 Park In Time
                             </span>
                             <span style={{ float: 'right' }}>
-                                {this.state.checkIn}
+                                {transactionOrder.checkIn}
                             </span>
                         </Row>
                     </Row>
