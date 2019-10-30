@@ -1,11 +1,17 @@
-.modalButtonClass {
-    align-content: center;
+.parking-lot-input-default input{
+    font-family: Roboto;
+}
+
+.parking-lot-input-active input{
+    font-family: Roboto;
 }
 
 .parking-lot-input-default input.select-dropdown{
-    color:lightgray
+    color:lightgray;
+    font-family: Roboto;
 }
 
 .parking-lot-input-active input.select-dropdown{
-    color:black
+    color:black;
+    font-family: Roboto;
 }

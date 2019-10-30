@@ -5,6 +5,7 @@ import App from './App';
 import {createStore} from 'redux';
 import rootReducer from './reducers';
 import {Provider} from 'react-redux';
+import 'typeface-roboto';
 
 const store = createStore(
     rootReducer,
