@@ -28,27 +28,27 @@ class App extends React.Component {
 
                         <Route path="/parkinglotlist">
                             <ParkingLotListContainer/>
-                            <Menu/>
+                            <Menu  clicked={'home'}/>
                         </Route>
 
                         <Route path="/transactions">
                             <TransactionOrderContainer/>
-                            <Menu/>
+                            <Menu clicked={'txn'}/>
                         </Route>
 
                         <Route path="/notifications">
                             <Notification/>
-                            <Menu/>
+                            <Menu clicked={'notifs'}/>
                         </Route>
 
                         <Route path="/wallet">
                             <WalletContainer/>
-                            <Menu/>
+                            <Menu clicked={'wallet'}/>
                         </Route>
 
                         <Route path="/profile">
                             <UserProfileContainer/>
-                            <Menu/>
+                            <Menu />
                         </Route>
 
                         <Route path="/checkout">
