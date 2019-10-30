@@ -22,6 +22,9 @@ const mapDispatchToProps = dispatch => ({
         type: 'FILTER_PARKING_LOTS',
         payload: criteria
     }),
+    resetFilterCriteria: () => dispatch({
+        type: 'RESET_FILTER'
+    }),
     setSelectedParkingLot: (parkingLotId, userId) => {
         return ParkingLotResource.setSelectedParkingLot({parkingLotId: parkingLotId, userId: userId})
             .then(res => res.json())

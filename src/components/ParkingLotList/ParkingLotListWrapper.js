@@ -18,6 +18,7 @@ export class ParkingLotListWrapper extends Component {
             window.location.href = '/';
         }
         this.setState({userInfo: userInformation.id});
+        this.props.resetFilterCriteria();
         this.checkNavigator();
     }
 
@@ -52,7 +53,7 @@ export class ParkingLotListWrapper extends Component {
 
     setManualLocation = (manualLocationName) => {
         if (manualLocationName === undefined || manualLocationName === '') {
-            this.componentDidMount();
+            this.checkNavigator();
         } else {
             LocationResource.findByName(manualLocationName)
                 .then(res => res.json())
