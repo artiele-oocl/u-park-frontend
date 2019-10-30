@@ -38,6 +38,11 @@ export default (state = initialState, { type, payload }) => {
                 parkingLots: orderedParkingLots,
                 criteria: payload
             };
+        case "RESET_FILTER":
+            return {
+                ...state,
+                criteria: 'Default'
+            };
         case "SET_PARK_HERE_DETAILS":
             return {
                 ...state,
