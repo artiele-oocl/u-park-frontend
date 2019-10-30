@@ -39,32 +39,33 @@ export class RegisterWrapper extends Component {
     };
 
     isInputValid() {
+
         if (!this.state.conditionAgreement) {
-            M.toast({html: 'Please check the box to agree in terms and conditions'});
+            M.toast({html: 'Please check the box to agree in terms and conditions.'});
             return false
         }
-        if (!new RegExp(".+@.+\\..+").test(this.state.email)) {
-            M.toast({html: 'Invalid Email'});
-            return false
-        }
-
-        if (!new RegExp("[0-9]{11}").test(this.state.phoneNumber)) {
-            M.toast({html: 'Invalid Number, must be 11-digit number'});
+        else if (!new RegExp(".+@.+\\..+").test(this.state.email)) {
+            M.toast({html: 'Please enter a valid email.'});
             return false
         }
 
-        if (!new RegExp("[a-zA-Z0-9]{5}").test(this.state.name)) {
-            M.toast({html: 'Invalid Name, must contain at least 5 characters'});
+        else if (!new RegExp("[0-9]{11}").test(this.state.phoneNumber)) {
+            M.toast({html: 'Please enter an 11-digit phone number.'});
             return false
         }
 
-        if (!new RegExp("[a-zA-Z0-9]{3}").test(this.state.password)) {
-            M.toast({html: 'Invalid Name, must contain at least 3 characters'});
+        else if (!new RegExp("[a-zA-Z0-9]{5}").test(this.state.name)) {
+            M.toast({html: 'Please enter at least 5 character name.'});
             return false
         }
 
-        if (this.state.password !== this.state.confirmPassword) {
-            M.toast({html: 'Passwords do not match'});
+        else if (!new RegExp("[a-zA-Z0-9]{3}").test(this.state.password)) {
+            M.toast({html: 'Please enter a 3 character password.'});
+            return false
+        }
+
+        else if (this.state.password !== this.state.confirmPassword) {
+            M.toast({html: 'Passwords do not match.'});
             return false
         }
 
@@ -73,7 +74,7 @@ export class RegisterWrapper extends Component {
         );
 
         if (isExist) {
-            M.toast({html: 'Email or phone number already exist'});
+            M.toast({html: 'Email or phone number already exist. Please enter a new one.'});
             return false
         }
         return true;
@@ -112,8 +113,7 @@ export class RegisterWrapper extends Component {
                 <form onSubmit={this.onSubmit} style={{marginLeft: '2rem', marginRight: '2rem'}}>
                     <TextInput icon="email" label="Email"
                                onChange={this.onChangeEmail}
-                               email validate
-                               error="INVALID EMAIL" required/>
+                               error="Please fill out valid e-mail format." required/>
                     <TextInput icon="local_phone" label="Phone Number"
                                onChange={this.onChangePhoneNumber}
                                maxLength={11} required/>
@@ -129,7 +129,7 @@ export class RegisterWrapper extends Component {
 
                     <Checkbox label="I agree to" onChange={this.onChangeConditionAgreement} value="agree"/>
                     {/* <Link to="/terms"> Terms and Conditions</Link> */}
-                    
+
                     <Modal header="Terms and Conditions" bottomSheet trigger={<Link> Terms and Conditions</Link>}>
 General Site Usage<br/>
 Last Revised: October 29, 2019<br/>
@@ -181,7 +181,7 @@ This Site is controlled, operated and administered by us from our office in Kiev
 A. If any provision of these Terms and Conditions is held to be invalid or unenforceable, the provision shall be removed (or interpreted, if possible, in a manner as to be enforceable), and the remaining provisions shall be enforced. Headings are for reference purposes only and in no way define, limit, construe or describe the scope or extent of such section. Our failure to act with respect to a breach by you or others does not waive our right to act with respect to subsequent or similar breaches. These Terms and Conditions set forth the entire understanding and agreement between us with respect to the subject matter contained herein and supersede any other agreement, proposals and communications, written or oral, between our representatives and you with respect to the subject matter hereof, including any terms and conditions on any of customer's documents or purchase orders.
 <br/><br/>
 B. No Joint Venture, No Derogation of Rights. You agree that no joint venture, partnership, employment, or agency relationship exists between you and us as a result of these Terms and Conditions or your use of the Site. Our performance of these Terms and Conditions is subject to existing laws and legal process, and nothing contained herein is in derogation of our right to comply with governmental, court and law enforcement requests or requirements relating to your use of the Site or information provided to or gathered by us with respect to such use.</Modal>
-                    <Button type="submit" waves="light" style={{marginRight: '5px', marginTop: '2rem', width: '100%'}}>
+                    <Button type="submit" style={{marginRight: '5px', marginTop: '2rem', width: '100%'}}>
                         Submit
                     </Button>
                 </form>
