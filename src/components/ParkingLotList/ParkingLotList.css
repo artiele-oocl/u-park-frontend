@@ -1,3 +1,11 @@
 .modalButtonClass {
     align-content: center;
 }
+
+.parking-lot-input-default input.select-dropdown{
+    color:lightgray
+}
+
+.parking-lot-input-active input.select-dropdown{
+    color:black
+}

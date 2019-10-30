@@ -3,6 +3,7 @@ import {Select, Col, Row, Autocomplete, Badge} from 'react-materialize';
 import logo from "../../logo.png";
 import LocationResource from '../../api/LocationResource';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import './ParkingLotList.css';
 
 export default class ParkingLotListInput extends Component {
 
@@ -10,6 +11,7 @@ export default class ParkingLotListInput extends Component {
         sortCriteria: 'Default',
         locations: null,
         manualSearch: '',
+        inputStyle: 'parking-lot-input-default'
     };
 
     componentDidMount() {
@@ -18,6 +20,7 @@ export default class ParkingLotListInput extends Component {
 
     handleInputChange = (event) => {
         this.setState({sortCriteria: event.target.value});
+        this.setState({inputStyle: 'parking-lot-input-active'})
         this.props.onSetFilter(event.target.value);
     };
 
@@ -52,7 +55,7 @@ export default class ParkingLotListInput extends Component {
             return <div/>
         }
         return (
-            <div style={{marginLeft: '15px', marginRight: '15px', marginTop: '20px'}}>
+            <div className={this.state.inputStyle} style={{marginLeft: '15px', marginRight: '15px', marginTop: '20px'}}>
                 <br/>
                 <Row>
                     <Col style={{float: 'left'}}>
