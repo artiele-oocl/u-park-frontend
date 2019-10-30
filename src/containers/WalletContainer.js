@@ -3,8 +3,7 @@ import UserResource from "../api/UserResource";
 import WalletWrapper from "../components/User/WalletWrapper";
 
 const mapStateToProps = state => ({
-    parkingLots: state.parkingLotResource.parkingLots,
-    criteria: state.parkingLotResource.criteria
+    user: state.profileResource.user
 });
 
 const mapDispatchToProps = dispatch => ({
