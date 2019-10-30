@@ -11,7 +11,7 @@ export class TransactionOrderList extends Component {
             <div>
                 <Collection>
                     {transactionOrderList.map((transactionOrder, i) =>
-                        <CollectionItem href="#" key={i} className="transaction-order-list">
+                        <CollectionItem href="##" key={i} className="transaction-order-list">
                             <TransactionOrder transactionOrder={transactionOrder} />
                         </CollectionItem>
                     )}
