@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     getUserActiveTransaction: (userId) => {
-        CheckoutResource.getUserTransation(userId)
+        return CheckoutResource.getUserTransation(userId)
             .then(res => res.json())
             .then((transactionDetails) => {
                 dispatch({
