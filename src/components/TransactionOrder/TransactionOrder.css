@@ -5,6 +5,10 @@
   background: #fff;
 }
 
+.transaction-order-list div {
+  border: 0!important;
+}
+
 .chevron {
     position: absolute;
     right: 0px;
