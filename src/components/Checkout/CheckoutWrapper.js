@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import FakeAuth from "../../FakeAuth";
-import AfterCheckout from "./AfterCheckout";
 import Checkout from "./Checkout";
 
 export default class CheckoutWrapper extends Component {
 
     performCheckout = () =>{
         if (this.props.checkOut.transactionOrder !== null) {
-            this.props.performCheckOut();
+            this.props.performCheckOut(this.props.checkOut.transactionOrder.id);
+            console.log(this.props.checkOut.transactionOrder.id)
         }
     }
 

@@ -5,7 +5,7 @@ import CheckoutDetails from "./CheckoutDetails";
 
 export default class Checkout extends React.Component {
     doCheckOut = () => {
-        this.props.performCheckOut()
+        this.props.performCheckout()
     }
 
     render() {
@@ -20,8 +20,9 @@ export default class Checkout extends React.Component {
 
                     <Col s={12} style={{padding: '0', borderRadius: '0'}}>
                         <CardPanel style={{backgroundColor: '#389793', margin: '0', borderRadius: '0', padding: '0'}}>
-                            <CheckoutDetails checkoutDetails={this.props.checkOut}
-                            checkOut={this.doCheckOut}/>
+                            <CheckoutDetails
+                                checkoutDetails={this.props.checkOut}
+                                checkOut={this.doCheckOut}/>
                         </CardPanel>
                     </Col>
                 </Row>

@@ -35,8 +35,10 @@ export default class CheckoutDetails extends React.Component {
                             </StarRatings>
                         </Col>
                     </Row>
-                    <BeforeCheckout checkoutDetails={this.props.checkoutDetails}
-                    checkOut={this.doCheckout}/>
+                    <BeforeCheckout
+                        checkoutDetails={this.props.checkoutDetails}
+                        checkOut={this.doCheckout}
+                    />
 
                     {/*<AfterCheckout onRate={this.rateAfterCheckout}/>*/}
                 </div>
