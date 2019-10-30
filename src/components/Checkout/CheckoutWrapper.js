@@ -19,13 +19,16 @@ export default class CheckoutWrapper extends Component {
         this.props.getUserActiveTransaction(userInformation.id);
     }
 
-
+    rateAfterCheckout = (transactionId, rating) => {
+        this.props.addRating(transactionId, rating);
+    };
 
     render() {
         return (
             <div>
                 <Checkout checkOut={this.props.checkOut}
-                performCheckout={this.performCheckout}/>
+                          performCheckout={this.performCheckout}
+                          rateAfterCheckout ={this.rateAfterCheckout}/>
 
             </div>
         );

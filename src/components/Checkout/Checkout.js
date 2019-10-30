@@ -8,6 +8,10 @@ export default class Checkout extends React.Component {
         this.props.performCheckout()
     }
 
+    rateAfterCheckout = (transactionId, rating) => {
+        this.props.rateAfterCheckout(transactionId, rating);
+    };
+
     render() {
         return (
             <div>
@@ -22,7 +26,10 @@ export default class Checkout extends React.Component {
                         <CardPanel style={{backgroundColor: '#389793', margin: '0', borderRadius: '0', padding: '0'}}>
                             <CheckoutDetails
                                 checkoutDetails={this.props.checkOut}
-                                checkOut={this.doCheckOut}/>
+                                checkOut={this.doCheckOut}
+                                addRating={this.rateAfterCheckout}
+                            />
+
                         </CardPanel>
                     </Col>
                 </Row>

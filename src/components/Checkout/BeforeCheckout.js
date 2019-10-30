@@ -12,7 +12,7 @@ export default class BeforeCheckout extends React.Component {
         if (parkingLot != null && transactionOrder != null) {
             return (
                 <Row style={{ margin: '0', backgroundColor: 'white', padding: '20px', fontWeight: '500', fontSize: '1.2rem'}}>
-                    <Row style={{ margin: '0', backgroundColor: 'white', border: '1px solid lightgrey'}}>
+                    <Row style={{ margin: '0', backgroundColor: 'white', border: '1px solid lightgrey',  color: 'grey'}}>
                         <Row style={{ padding: '10px', margin: '30px 0px' }}>
                             <span style={{ float: 'left' }}>
                                 Hourly rate
@@ -21,12 +21,12 @@ export default class BeforeCheckout extends React.Component {
                                 ₱ {parkingLot.rate}.00
                             </span>
                         </Row>
-                        <Row style={{ paddingBottom: '10px', paddingLeft: '10px', paddingRight: '10px', marginBottom: '30px', marginLeft: '0px', marginRight: '0px', backgroundColor: 'white' }}>
+                        <Row style={{ paddingBottom: '10px', paddingLeft: '10px', paddingRight: '10px', marginBottom: '30px', marginLeft: '0px', marginRight: '0px', backgroundColor: 'white'  , color: 'grey'}}>
                             <span style={{ float: 'left' }}>
                                 Park In Time
                             </span>
                             <span style={{ float: 'right' }}>
-                                {transactionOrder.checkIn}
+                                {this.props.parseDate(transactionOrder.checkIn)}
                             </span>
                         </Row>
                     </Row>

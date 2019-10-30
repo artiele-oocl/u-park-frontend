@@ -5,16 +5,10 @@ import { Link } from "react-router-dom";
 
 
 export default class AfterCheckout extends React.Component {
-    state = {
-        rating: 0,
-        dummy_parkintime: '2019-10-30 16:48:43',
-        rate: 40,
-        total: 500
+    changeRating = (newRating) => {
+        this.props.onRate(this.props.checkoutDetails.transactionOrder.id, newRating);
     }
 
-    changeRating = (newRating) => {
-        this.props.onRate(54, newRating);
-    }
 
     render() {
         const { parkingLot, transactionOrder } = this.props.checkoutDetails;
@@ -27,23 +21,23 @@ export default class AfterCheckout extends React.Component {
                                 Park In Time
                             </span>
                             <span style={{ float: 'right', fontWeight: '200' }}>
-                                {this.state.dummy_parkintime}
+                                {this.props.parseDate(transactionOrder.checkIn)}
                             </span>
                         </Row>
                         <Row style={{ paddingBottom: '10px', paddingLeft: '10px', paddingRight: '10px', marginBottom: '30px', marginLeft: '0px', marginRight: '0px', backgroundColor: 'white', color: 'grey' }}>
                             <span style={{ float: 'left' }}>
-                                Park In Time
+                                Park Out Time
                             </span>
                             <span style={{ float: 'right', fontWeight: '200' }}>
-                                {this.state.dummy_parkintime}
+                                {this.props.parseDate(transactionOrder.checkOut)}
                             </span>
                         </Row>
                         <Row style={{ paddingBottom: '10px', paddingLeft: '10px', paddingRight: '10px', marginBottom: '30px', marginLeft: '0px', marginRight: '0px', backgroundColor: 'white' }}>
                             <span style={{ float: 'left' }}>
-                                Hourly rate: ₱ {this.state.rate}.00/hr
+                                Hourly rate: ₱ {parkingLot.rate}.00/hr
                             </span>
                             <span style={{ float: 'right' }}>
-                                Total: ₱ {this.state.total}.00
+                                Total: ₱ {transactionOrder.totalFee}.00
                             </span>
                         </Row>
                     </Row>
@@ -51,7 +45,7 @@ export default class AfterCheckout extends React.Component {
                         <Col style={{ fontSize: '2rem', width: '100%', padding: '5px' }}>
                             <Link to='/parkinglotlist'>
                                 <StarRatings
-                                    rating={this.state.rating}
+                                    rating={0}
                                     starHoverColor="orange"
                                     numberOfStars={5}
                                     changeRating={this.changeRating}
