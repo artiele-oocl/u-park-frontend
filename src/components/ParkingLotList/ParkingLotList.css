@@ -4,8 +4,10 @@
 
 .parking-lot-input-default input.select-dropdown{
     color:lightgray;
+    font-family: Roboto;
 }
 
 .parking-lot-input-active input.select-dropdown{
-    color:black
+    color:black;
+    font-family: Roboto;
 }
