@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Row, Button } from 'react-materialize';
 import StarRatings from 'react-star-ratings';
+import BeforeCheckout from "./BeforeCheckout";
 
 export default class CheckoutDetails extends React.Component {
     state = {
@@ -39,29 +40,7 @@ export default class CheckoutDetails extends React.Component {
                             </p>
                         </Col>
                     </Row>
-                    <Row style={{ margin: '0', backgroundColor: 'white', padding: '20px', fontWeight: '500', fontSize: '1.2rem'}}>
-                        <Row style={{ margin: '0', backgroundColor: 'white', border: '1px solid lightgrey'}}>
-                            <Row style={{ padding: '10px', margin: '30px 0px' }}>
-                                <span style={{ float: 'left' }}>
-                                    Hourly rate
-                                </span>
-                                <span style={{ float: 'right' }}>
-                                    ₱ {this.state.rate}.00
-                                </span>
-                            </Row>
-                            <Row style={{ paddingBottom: '10px', paddingLeft: '10px', paddingRight: '10px', marginBottom: '30px', marginLeft: '0px', marginRight: '0px', backgroundColor: 'white' }}>
-                                <span style={{ float: 'left' }}>
-                                    Park In Time
-                                </span>
-                                <span style={{ float: 'right' }}>
-                                    {this.state.checkIn}
-                                </span>
-                            </Row>
-                        </Row>
-                        <Row style={{ margin: '0', backgroundColor: 'white', padding: '10px', textAlign: 'center', marginTop: '20%', marginBottom: '27%' }}>
-                            <Button large style={{  width: '80%', fontSize: '2rem', width: '100%', textTransform: 'capitalize', backgroundColor: '#195856d4'}}>Check Out</Button>
-                        </Row>
-                    </Row>
+                    <BeforeCheckout checkoutDetails={this.props.checkoutDetails}/>
                 </div>
             )
         } else {
