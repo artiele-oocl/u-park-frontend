@@ -31,7 +31,7 @@ export default class BeforeCheckout extends React.Component {
                             </span>
                         </Row>
                     </Row>
-                    <Row style={{ margin: '0', backgroundColor: 'white', padding: '10px', textAlign: 'center', marginTop: '20%', marginBottom: '27%' }}>
+                    <Row style={{ backgroundColor: 'white', padding: '10px', textAlign: 'center', margin: '5% 0px 10%' }}>
                         <Button large style={{ fontSize: '2rem', width: '100%', textTransform: 'capitalize', backgroundColor: '#195856d4'}}
                         onClick = {this.doCheckOut}
                         >Check Out</Button>

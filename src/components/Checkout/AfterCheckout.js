@@ -1,7 +1,5 @@
 import React from "react";
-import {Row, Col, Card, CardTitle} from 'react-materialize';
-import logo from "../../logo.png";
-import CheckoutDetails from "./CheckoutDetails";
+import {Row, Col } from 'react-materialize';
 import StarRatings from "react-star-ratings";
 import {Link} from "react-router-dom";
 

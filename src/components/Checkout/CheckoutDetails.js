@@ -19,22 +19,20 @@ export default class CheckoutDetails extends React.Component {
             return (
                 <div>
                     <Row style={{margin: '0'}} className="white-text">
-                        <Col s={6}>
-                            <p>{parkingLot.name}</p>
-
-                            {/*<p style={{ marginBottom: '0' }}>*/}
-                            {/*    idontknow distance? km*/}
-                            {/*</p>*/}
-                            <p>
-                                <StarRatings
-                                    rating={parkingLot.starRating}
-                                    starRatedColor="orange"
-                                    numberOfStars={5}
-                                    starDimension="12px"
-                                    starSpacing="0.5px"
-                                    name='rating'>
-                                </StarRatings>
-                            </p>
+                        <Col s={6} style={{ padding: '15px' }}>
+                            <span>
+                                {parkingLot.name}
+                            </span>
+                        </Col>
+                        <Col s={6} style={{ padding: '15px' }}>
+                            <StarRatings
+                                rating={parkingLot.starRating}
+                                starRatedColor="orange"
+                                numberOfStars={5}
+                                starDimension="12px"
+                                starSpacing="0.5px"
+                                name='rating'>
+                            </StarRatings>
                         </Col>
                     </Row>
                     <BeforeCheckout checkoutDetails={this.props.checkoutDetails}
