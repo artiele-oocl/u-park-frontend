@@ -10,6 +10,10 @@ export default class ParkingLotModal extends Component {
     };
 
     render() {
+        const orderTransaction = this.props.transactionOrder;
+        if (orderTransaction) {
+            window.location.href = "/checkout"
+        }
         return (
             <div>
                 <Row>

@@ -27,7 +27,7 @@ export default class CheckoutWrapper extends Component {
         return (
             <div>
                 <Checkout checkOut={this.props.checkOut}
-                          performCheckout={this.performCheckout}
+                performCheckout={this.performCheckout}
                           rateAfterCheckout ={this.rateAfterCheckout}/>
 
             </div>

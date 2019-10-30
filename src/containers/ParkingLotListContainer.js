@@ -4,7 +4,8 @@ import ParkingLotListWrapper from '../components/ParkingLotList/ParkingLotListWr
 
 const mapStateToProps = state => ({
     parkingLots: state.parkingLotResource.parkingLots,
-    criteria: state.parkingLotResource.criteria
+    criteria: state.parkingLotResource.criteria,
+    transactionOrder: state.parkingLotResource.transactionOrder
 });
 
 const mapDispatchToProps = dispatch => ({
