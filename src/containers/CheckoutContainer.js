@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     getUserActiveTransaction: (userId) => {
-        CheckoutResource.getUserTransation(userId)
+        return CheckoutResource.getUserTransation(userId)
             .then(res => res.json())
             .then((transactionDetails) => {
                 dispatch({
@@ -22,6 +22,17 @@ const mapDispatchToProps = dispatch => ({
     addRating: (transactionId, rating) => {
         const transaction = {id : transactionId, starRating: rating};
         CheckoutResource.patchRating(transaction) ;
+    },
+
+    performCheckOut: (transactionId) => {
+        CheckoutResource.performBackendCheckout(transactionId)
+            .then(res => res.json())
+            .then((transactionDetails) => {
+                dispatch({
+                    type : "UPDATE_CHECKOUT_STATE",
+                    payload: transactionDetails
+                })
+            });
     }
 
 });

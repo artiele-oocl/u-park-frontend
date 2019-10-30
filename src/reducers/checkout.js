@@ -10,6 +10,13 @@ export default (state = initialState, {type, payload}) => {
                 ...state,
                 ...state.checkOut = payload
             }
+
+        case 'UPDATE_CHECKOUT_STATE':
+            return {
+                ...state,
+                ...state.checkOut = payload
+            }
+
         default:
             return state;
     }

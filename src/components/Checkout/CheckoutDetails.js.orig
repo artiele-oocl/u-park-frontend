@@ -14,22 +14,6 @@ export default class CheckoutDetails extends React.Component {
         this.props.addRating(transactionId, rating);
     };
 
-    parseDate = (date) => {
-        if (date === null) {
-            return null;
-        } else {
-            const dateOptions = {
-
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric',
-                hour: 'numeric',
-                minute: 'numeric'
-            };
-            return new Date(date).toLocaleDateString('en-US', dateOptions);
-        }
-    };
-
     render() {
         const {parkingLot, transactionOrder} = this.props.checkoutDetails;
         if (parkingLot != null && transactionOrder != null) {
@@ -52,20 +36,29 @@ export default class CheckoutDetails extends React.Component {
                             </StarRatings>
                         </Col>
                     </Row>
+<<<<<<< origin/Before_After_Checkout_To_CI
                     
+                    <BeforeCheckout
+                        checkoutDetails={this.props.checkoutDetails}
+                        checkOut={this.doCheckout}
+                    />
+
+                    <AfterCheckout
+                        onRate={this.rateAfterCheckout }
+                        checkoutDetails={this.props.checkoutDetails}
+                    />
+
+=======
                     {
                         this.props.checkoutDetails.transactionOrder.checkOut !== null ?
-                            <AfterCheckout onRate={this.rateAfterCheckout}
-                                           checkoutDetails={this.props.checkoutDetails}
-                                            parseDate = {this.parseDate}
-                            /> :
+                            <AfterCheckout onRate={this.rateAfterCheckout}/> :
                             <BeforeCheckout
                                 checkoutDetails={this.props.checkoutDetails}
                                 checkOut={this.doCheckout}
-                                parseDate = {this.parseDate}
                             />
                     }
 
+>>>>>>> local
                 </div>
             )
         } else {
