@@ -25,17 +25,16 @@ export default class CheckoutDetails extends React.Component {
                         </Col>
                         <Col s={6}>
                             <p style={{ marginBottom: '0' }}>
-                                {this.state.distance} km
+                                idontknow distance? km
                             </p>
                             <p style={{ marginTop: '0' }}>
                                 <StarRatings
-                                    rating={this.state.starRating}
+                                    rating={parkingLot.starRating}
                                     starRatedColor="orange"
                                     numberOfStars={5}
                                     starDimension="12px"
                                     starSpacing="0.5px"
                                     name='rating'>
-
                                 </StarRatings>
                             </p>
                         </Col>
