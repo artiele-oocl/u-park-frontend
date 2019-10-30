@@ -1,6 +1,5 @@
 import React from "react";
-import { Col, Row, Button } from 'react-materialize';
-import StarRatings from 'react-star-ratings';
+import { Row, Button } from 'react-materialize';
 
 export default class BeforeCheckout extends React.Component {
     state = {
@@ -37,7 +36,7 @@ export default class BeforeCheckout extends React.Component {
                         </Row>
                     </Row>
                     <Row style={{ margin: '0', backgroundColor: 'white', padding: '10px', textAlign: 'center', marginTop: '20%', marginBottom: '27%' }}>
-                        <Button large style={{  width: '80%', fontSize: '2rem', width: '100%', textTransform: 'capitalize', backgroundColor: '#195856d4'}}>Check Out</Button>
+                        <Button large style={{ fontSize: '2rem', width: '100%', textTransform: 'capitalize', backgroundColor: '#195856d4'}}>Check Out</Button>
                     </Row>
                 </Row>
             )

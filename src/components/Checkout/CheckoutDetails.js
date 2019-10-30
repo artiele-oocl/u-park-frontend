@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row, Button } from 'react-materialize';
+import { Col, Row } from 'react-materialize';
 import StarRatings from 'react-star-ratings';
 import BeforeCheckout from "./BeforeCheckout";
 
@@ -16,12 +16,12 @@ export default class CheckoutDetails extends React.Component {
     render() {
         const { parkingLot, transactionOrder } = this.props.checkoutDetails;
         if (parkingLot != null && transactionOrder != null) {
-            console.log(parkingLot, transactionOrder)
+            console.log(parkingLot.address, transactionOrder)
             return (
                 <div>
                     <Row style={{ margin: '0' }} className="white-text">
                         <Col s={6}>
-                            <p>{this.state.name}</p>
+                            <p>{parkingLot.name}</p>
                         </Col>
                         <Col s={6}>
                             <p style={{ marginBottom: '0' }}>
