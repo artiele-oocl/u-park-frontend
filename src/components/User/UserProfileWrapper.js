@@ -13,6 +13,10 @@ export class UserProfileWrapper extends Component {
         phoneNumber: FakeAuth.isAuthenticated().phoneNumber
     };
 
+    componentDidMount() {
+        this.props.getAllUsers()
+    }
+
     onNameChange = (e) => {
         this.setState({name: e.target.value});
     };
@@ -34,6 +38,7 @@ export class UserProfileWrapper extends Component {
             };
             this.props.patchUserProfile(this.state.id, userInfo);
             M.toast({html: 'Successfully updated the profile'});
+            setTimeout(() => {window.location.href = '/parkinglotlist'}, 1000)
         }
     };
 
@@ -55,6 +60,19 @@ export class UserProfileWrapper extends Component {
 
         if (!new RegExp("[0-9]{11}").test(this.state.phoneNumber)) {
             M.toast({html: 'Invalid Number, must be 11-digit number'});
+            return false
+        }
+
+        const filteredCurrent = this.props.users.filter(user =>
+            user.email !== this.state.email || user.phoneNumber !== this.state.phoneNumber
+        );
+
+        const isExist = filteredCurrent.some(user =>
+            user.email === this.state.email || user.phoneNumber === this.state.phoneNumber
+        );
+
+        if (isExist) {
+            M.toast({html: 'Email or phone number already exist'});
             return false
         }
 

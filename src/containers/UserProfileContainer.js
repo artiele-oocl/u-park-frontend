@@ -3,7 +3,8 @@ import UserResource from "../api/UserResource";
 import {UserProfileWrapper} from "../components/User/UserProfileWrapper";
 
 const mapStateToProps = state => ({
-    user: state.profileResource.user
+    user: state.profileResource.user,
+    users: state.registerResource.users
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -16,6 +17,17 @@ const mapDispatchToProps = dispatch => ({
                 sessionStorage['u-park-user-information'] = JSON.stringify(res);
             })
     },
+
+    getAllUsers: () => {
+        UserResource.getAll()
+            .then(res => res.json())
+            .then(res => {
+                dispatch({
+                    type: 'REFRESH',
+                    payload: res
+                })
+            })
+    }
 });
 
 export default connect(
