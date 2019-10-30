@@ -39,7 +39,7 @@ export default class TransactionOrder extends Component {
 
     render() {
         const {transactionOrder} = this.props;
-        const transactionSummary = <div>
+        const transactionSummary = <div style={{fontWeight: 'normal'}}>
             {transactionOrder.parkingLotName}<br/>
             <span style={{fontSize: '11px'}}>Total: {transactionOrder.totalFee}</span>
             <i className="chevron"><img style={{width: '20px', height: '20px'}} src={chevrondown} alt='altText'/></i>
