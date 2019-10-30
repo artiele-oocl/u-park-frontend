@@ -2,6 +2,10 @@
     font-family: Roboto;
 }
 
+.parking-lot-input-active input{
+    font-family: Roboto;
+}
+
 .parking-lot-input-default input.select-dropdown{
     color:lightgray;
     font-family: Roboto;
