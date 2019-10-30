@@ -10,7 +10,6 @@ export default class BeforeCheckout extends React.Component {
     render() {
         const { parkingLot, transactionOrder } = this.props.checkoutDetails;
         if (parkingLot != null && transactionOrder != null) {
-            console.log(parkingLot, transactionOrder)
             return (
                 <Row style={{ margin: '0', backgroundColor: 'white', padding: '20px', fontWeight: '500', fontSize: '1.2rem'}}>
                     <Row style={{ margin: '0', backgroundColor: 'white', border: '1px solid lightgrey'}}>
@@ -31,7 +30,7 @@ export default class BeforeCheckout extends React.Component {
                             </span>
                         </Row>
                     </Row>
-                    <Row style={{ backgroundColor: 'white', padding: '10px', textAlign: 'center', margin: '5% 0px 10%' }}>
+                    <Row style={{ backgroundColor: 'white', padding: '10px', textAlign: 'center', margin: '5% 0px 11%' }}>
                         <Button large style={{ fontSize: '2rem', width: '100%', textTransform: 'capitalize', backgroundColor: '#195856d4'}}
                         onClick = {this.doCheckOut}
                         >Check Out</Button>

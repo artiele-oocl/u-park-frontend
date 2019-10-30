@@ -2,6 +2,7 @@ import React from "react";
 import { Col, Row } from 'react-materialize';
 import StarRatings from 'react-star-ratings';
 import BeforeCheckout from "./BeforeCheckout";
+import AfterCheckout from "./AfterCheckout";
 
 export default class CheckoutDetails extends React.Component {
 
@@ -35,12 +36,17 @@ export default class CheckoutDetails extends React.Component {
                             </StarRatings>
                         </Col>
                     </Row>
-                    <BeforeCheckout
+                    
+                    {/* <BeforeCheckout
                         checkoutDetails={this.props.checkoutDetails}
                         checkOut={this.doCheckout}
+                    /> */}
+
+                    <AfterCheckout
+                        onRate={this.rateAfterCheckout }
+                        checkoutDetails={this.props.checkoutDetails}
                     />
 
-                    {/*<AfterCheckout onRate={this.rateAfterCheckout}/>*/}
                 </div>
             )
         } else {
