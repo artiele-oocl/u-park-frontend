@@ -7,7 +7,7 @@ export default class WalletMoney extends Component {
         return (
             <div>
                 <Card
-                    style={{backgroundColor: "#389793"}}
+                    style={{ backgroundColor: "#389793", marginTop: '0', height: '40vh', padding: '40px' }}
                     textClassName="white-text"
                 >
                     <AccountBalanceWalletIcon style={{fontSize: "6em"}}/>

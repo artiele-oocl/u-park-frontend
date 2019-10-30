@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Button, Modal, TextInput} from 'react-materialize';
+import {Button, TextInput} from 'react-materialize';
 import * as M from "materialize-css";
 
 export default class WalletTopUp extends Component {
