@@ -4,9 +4,6 @@ import StarRatings from "react-star-ratings";
 import {Link} from "react-router-dom";
 
 export default class ParkingLotModal extends Component {
-    state = {
-        parkingLot: this.props.parkingLot
-    };
 
     selectedParkingLot = () => {
         this.props.selectParkingLot(this.props.parkingLot.id);
@@ -18,10 +15,11 @@ export default class ParkingLotModal extends Component {
                 <Row>
                     <Col style={{float: 'left', textAlign: 'left'}}>
                         {this.props.parkingLot.name}
+                        <br/>
+                        <span style={{fontSize: '11px'}}>{parseFloat(this.props.parkingLot.distance).toFixed(2)} km</span>
                     </Col>
                     <Col style={{float: 'right', fontSize: '11px'}}>
-                        <span style={{fontSize: '11px'}}>{parseFloat(this.state.parkingLot.distance)
-                            .toFixed(2)} km</span>
+                        ₱{this.props.parkingLot.rate}/hr
                     </Col>
                     <br/>
                     <Col style={{float: 'right', fontSize: '11px'}}>
@@ -42,8 +40,8 @@ export default class ParkingLotModal extends Component {
                     </Col>
                     <Col m={6} s={12}>
                         <Button style={{marginRight: '5px', marginTop: '5px', width: '100%'}} onClick={() =>
-                            window.open("https://waze.com/ul?q=" + this.state.parkingLot.name + ", " +
-                                this.state.parkingLot.address)}> Open in Waze </Button>
+                            window.open("https://waze.com/ul?q=" + this.props.parkingLot.name + ", " +
+                                this.props.parkingLot.address)}> Open in Waze </Button>
                     </Col>
                 </Row>
             </div>
