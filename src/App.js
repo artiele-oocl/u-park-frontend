@@ -37,7 +37,7 @@ class App extends React.Component {
                         </Route>
 
                         <Route path="/notifications">
-                            <ParkingLotListContainer/>
+                            <Notification/>
                             <Menu/>
                         </Route>
 
