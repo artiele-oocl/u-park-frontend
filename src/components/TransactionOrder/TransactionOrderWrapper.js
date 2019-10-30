@@ -32,7 +32,13 @@ export class TransactionOrderWrapper extends Component {
                         <DescriptionOutlinedIcon style={{fontSize: '5rem', color: 'grey'}}/>
                     </Col>
                 </Row>
-                <span style={{fontSize: '16px'}}>My Previous Transactions</span>
+                <Row>
+                    <Col style={{paddingLeft: '0px'}}>
+                        <p style={{fontSize: '1.5rem', fontWeight: 'bold', marginTop: '8px', marginBottom: '0px', position:'center'}}>
+                            My Previous Transactions
+                        </p>
+                    </Col>
+                </Row>
                 <TransactionOrderList transactionOrderList={this.props.transactionOrders}/>
             </div>
         )

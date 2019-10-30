@@ -23,7 +23,7 @@ export default function Notification() {
                 </Row>
                 <Row>
                     <Col style={{paddingLeft: '0px'}}>
-                        <p style={{fontSize: '1.5rem', fontWeight: 'bold', marginTop: '8px', position:'center'}}>
+                        <p style={{fontSize: '1.5rem', fontWeight: 'bold', marginTop: '8px', marginBottom: '0px', position:'center'}}>
                             Notifications
                         </p>
                     </Col>
